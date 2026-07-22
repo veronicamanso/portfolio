@@ -169,6 +169,11 @@
   }
   .page-pill:hover{color:var(--accent-2);border-color:var(--accent-2);text-decoration:none;}
   .card-thumb{max-width:220px;width:100%;border-radius:10px;border:1px solid var(--border);margin-bottom:14px;display:block;}
+  .compare-row{display:flex;align-items:center;gap:18px;margin-bottom:14px;flex-wrap:wrap;}
+  .compare-item{display:flex;flex-direction:column;align-items:center;gap:8px;}
+  .compare-item .card-thumb{margin-bottom:0;max-width:170px;}
+  .compare-label{font-family:var(--mono);font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.5px;}
+  .compare-arrow{font-size:26px;color:var(--accent);flex-shrink:0;}
 
   .status-badge{
     display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:700;
@@ -391,7 +396,17 @@
         </div>
         <div class="card-date">May 2026</div>
       </div>
-      <img class="card-thumb" src="projects/map-design/Packaging_Reproduction.png" alt="Recreated front-panel packaging design for SPAR Vital Multigrain Flakes Natur">
+      <div class="compare-row">
+        <div class="compare-item">
+          <img class="card-thumb" src="projects/map-design/Packaging_Original_Photo.png" alt="Photo of the original SPAR Vital Multigrain Flakes Natur packaging">
+          <span class="compare-label">Original Product</span>
+        </div>
+        <div class="compare-arrow">→</div>
+        <div class="compare-item">
+          <img class="card-thumb" src="projects/map-design/Packaging_Reproduction.png" alt="Recreated front-panel packaging design for SPAR Vital Multigrain Flakes Natur">
+          <span class="compare-label">Vector Reproduction</span>
+        </div>
+      </div>
       <div class="card-desc">
         A precision vector reproduction exercise: recreating the front-panel packaging design of a real product
         (SPAR Vital Multigrain Flakes Natur) entirely from scratch in Affinity Designer, matching the original's
