@@ -72,6 +72,7 @@
     color:var(--text-dim);font-family:var(--sans);font-size:14px;font-weight:600;
   }
   .navlinks a:hover{color:var(--accent);text-decoration:none;}
+  .navlinks a.active{color:var(--accent);}
 
   .theme-toggle{
     display:inline-flex;align-items:center;justify-content:center;
@@ -128,6 +129,7 @@
   .about-card{
     background:var(--card);border:1px solid var(--border);border-radius:16px;padding:30px;
   }
+  .about-card p.lead{max-width:none;text-align:justify;}
 
   .skill-groups{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
   .skill-group{
@@ -685,6 +687,24 @@
   document.querySelectorAll('.navlinks a').forEach(a=>{
     a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open'));
   });
+
+  const navLinksByHref = {};
+  document.querySelectorAll('.navlinks a').forEach(a=>{
+    navLinksByHref[a.getAttribute('href').slice(1)] = a;
+  });
+  const spySections = Object.keys(navLinksByHref)
+    .map(id=>document.getElementById(id))
+    .filter(Boolean);
+  const navObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        Object.values(navLinksByHref).forEach(a=>a.classList.remove('active'));
+        const link = navLinksByHref[entry.target.id];
+        if(link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+  spySections.forEach(s=>navObserver.observe(s));
 
   const root = document.documentElement;
   const toggleBtn = document.getElementById('themeToggle');
