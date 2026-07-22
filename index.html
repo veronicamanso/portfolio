@@ -168,6 +168,7 @@
     border:1px solid var(--border);padding:3px 10px;border-radius:6px;
   }
   .page-pill:hover{color:var(--accent-2);border-color:var(--accent-2);text-decoration:none;}
+  .card-thumb{max-width:220px;width:100%;border-radius:10px;border:1px solid var(--border);margin-bottom:14px;display:block;}
 
   .status-badge{
     display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:700;
@@ -225,7 +226,8 @@
     <div class="navlinks" id="navlinks">
       <a href="#about">About Me</a>
       <a href="#skills">Skills</a>
-      <a href="#projects">Portfolio</a>
+      <a href="#projects">Projects</a>
+      <a href="#research">Research</a>
       <a href="#writing">Writing</a>
       <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
@@ -305,21 +307,21 @@
 <section id="projects">
   <div class="wrap">
     <div class="section-tag">Selected work</div>
-    <h2>Portfolio / Projects</h2>
+    <h2>Projects</h2>
 
     <div class="filter-row">
       <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="research">Research</button>
       <button class="filter-btn" data-filter="software">Web / Software</button>
+      <button class="filter-btn" data-filter="design">Map Design</button>
     </div>
 
     <div class="card" data-cat="software">
       <div class="card-top">
         <div>
-          <div class="card-title">Web Mapping Coursework Site - TU Wien Cartography</div>
+          <div class="card-title">Web Mapping and Multimedia Cartography</div>
           <div class="card-sub">5-page interactive web mapping project</div>
         </div>
-        <div class="card-date">2026</div>
+        <div class="card-date">Apr 2026 – Jun 2026</div>
       </div>
       <div class="card-desc">
         A multi-page site covering five techniques: a static feature-extraction/segmentation map, an
@@ -341,7 +343,55 @@
       </div>
     </div>
 
-    <div class="card" data-cat="research">
+    <div class="card" data-cat="design">
+      <div class="card-top">
+        <div>
+          <div class="card-title">Discover Ghana: A Tourist Map of Heritage, Nature, and Culture</div>
+          <div class="card-sub">Course Project · Project Map Creation, International Master's in Cartography</div>
+        </div>
+        <div class="card-date">Jun 2026</div>
+      </div>
+      <div class="card-desc">
+        A printed thematic tourist map of Ghana designed to showcase eight major heritage, wildlife, and
+        water-feature destinations across the country's regions - including Cape Coast Castle, Lake Bosomtwe,
+        and the Boabeng-Fiema Monkey Sanctuary - paired with national visitor statistics (1.29 million
+        international and 15.4 million domestic visitors, 2023-2024). Compiles administrative boundaries, road
+        networks, protected areas, and hydrology from multiple open datasets (GADM, OpenStreetMap/Geofabrik,
+        Protected Planet, Natural Earth, Esri) into a single reference map with a categorized legend
+        distinguishing heritage & culture, wildlife & nature, and water-feature sites.
+      </div>
+      <div class="tags"><span class="tag">Cartographic Design</span><span class="tag">Thematic Mapping</span><span class="tag">Tourism Mapping</span><span class="tag">Data Compilation</span></div>
+      <div class="card-links"><a class="card-link" href="projects/map-design/Ghana_Tourist_Map.pdf" target="_blank">View Map (PDF) →</a></div>
+    </div>
+
+    <div class="card" data-cat="design">
+      <div class="card-top">
+        <div>
+          <div class="card-title">Map Legend and Symbology Design - Kenya Demographics</div>
+          <div class="card-sub">Course Project · Geomedia Techniques, International Master's in Cartography</div>
+        </div>
+        <div class="card-date">Apr 2026</div>
+      </div>
+      <img class="card-thumb" src="projects/map-design/Legend_Design_Kenya.png" alt="Choropleth, proportional symbol, and icon legend design for Kenya demographics">
+      <div class="card-desc">
+        A vector-based legend design exercise combining three core thematic mapping techniques into a single
+        layout: a five-class choropleth colour scale showing adult population share in Kenya (0-100%),
+        proportional circles scaled to employee counts (500 to 10,000), and custom-modified pictographic icons
+        representing occupation types (police, dentist, optician). Built entirely in Affinity Designer, with a
+        focus on clean legend layout, consistent typography, and hand-edited iconography.
+      </div>
+      <div class="tags"><span class="tag">Legend Design</span><span class="tag">Choropleth Mapping</span><span class="tag">Proportional Symbols</span><span class="tag">Iconography</span><span class="tag">Affinity Designer</span></div>
+    </div>
+
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <div class="section-tag">Academic research</div>
+    <h2>Research Experience</h2>
+
+    <div class="card">
       <div class="card-top">
         <div>
           <div class="card-title">Spatial Hotspots of Mpox Risk in the DR Congo</div>
@@ -357,7 +407,7 @@
       <div class="tags"><span class="tag">MCDA</span><span class="tag">GIS</span><span class="tag">Public Health</span></div>
     </div>
 
-    <div class="card" data-cat="research">
+    <div class="card">
       <div class="card-top">
         <div>
           <div class="card-title">SAR-Based Land-Cover Classification Using CV-CNN</div>
@@ -372,7 +422,7 @@
       <div class="tags"><span class="tag">SAR</span><span class="tag">Deep Learning</span><span class="tag">Python</span></div>
     </div>
 
-    <div class="card" data-cat="research">
+    <div class="card">
       <div class="card-top">
         <div>
           <div class="card-title">Data Quality Assessment of Geodetic Observations</div>
@@ -387,7 +437,7 @@
       <div class="tags"><span class="tag">Statistics</span><span class="tag">RANSAC</span><span class="tag">Geodesy</span></div>
     </div>
 
-    <div class="card" data-cat="research">
+    <div class="card">
       <div class="card-top">
         <div>
           <div class="card-title">Land Use Land Cover Change - Tarkwa-Nsuaem District, Ghana</div>
