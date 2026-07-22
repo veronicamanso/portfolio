@@ -695,16 +695,26 @@
   const spySections = Object.keys(navLinksByHref)
     .map(id=>document.getElementById(id))
     .filter(Boolean);
+  function setActiveLink(id){
+    Object.values(navLinksByHref).forEach(a=>a.classList.remove('active'));
+    const link = navLinksByHref[id];
+    if(link) link.classList.add('active');
+  }
   const navObserver = new IntersectionObserver((entries)=>{
     entries.forEach(entry=>{
       if(entry.isIntersecting){
-        Object.values(navLinksByHref).forEach(a=>a.classList.remove('active'));
-        const link = navLinksByHref[entry.target.id];
-        if(link) link.classList.add('active');
+        setActiveLink(entry.target.id);
       }
     });
-  }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+  }, { rootMargin: '-80px 0px -66% 0px', threshold: 0 });
   spySections.forEach(s=>navObserver.observe(s));
+
+  window.addEventListener('scroll', ()=>{
+    const atBottom = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 2);
+    if(atBottom && spySections.length){
+      setActiveLink(spySections[spySections.length - 1].id);
+    }
+  }, { passive: true });
 
   const root = document.documentElement;
   const toggleBtn = document.getElementById('themeToggle');
