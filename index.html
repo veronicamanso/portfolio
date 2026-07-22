@@ -172,6 +172,8 @@
   .compare-row{display:flex;align-items:center;gap:18px;margin-bottom:14px;flex-wrap:wrap;}
   .compare-item{display:flex;flex-direction:column;align-items:center;gap:8px;}
   .compare-item .card-thumb{margin-bottom:0;max-width:300px;}
+  .compare-item.thumb-small .card-thumb{max-width:180px;}
+  .compare-item.thumb-large .card-thumb{max-width:400px;}
   .compare-label{font-family:var(--mono);font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.5px;}
   .compare-arrow{font-size:26px;color:var(--accent);flex-shrink:0;}
 
@@ -424,12 +426,12 @@
         <div class="card-date">May 2026</div>
       </div>
       <div class="compare-row">
-        <div class="compare-item">
+        <div class="compare-item thumb-small">
           <img class="card-thumb" src="projects/map-design/Salary_Map_Original.png" alt="Original average salaries in Europe map with design problems">
           <span class="compare-label">Original Map</span>
         </div>
         <div class="compare-arrow">→</div>
-        <div class="compare-item">
+        <div class="compare-item thumb-large">
           <img class="card-thumb" src="projects/map-design/Salary_Map_Redesign.png" alt="Redesigned hourly wages and salaries in Europe map">
           <span class="compare-label">Redesign</span>
         </div>
