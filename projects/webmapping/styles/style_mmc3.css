@@ -1,0 +1,911 @@
+/*    All brand colours live here for easy maintenance.   */
+:root {
+    --green-dark:    #214610;
+    --green-mid:     #676734;
+    --green-light:   #79AE6F;
+    --green-pale:    #9FCB98;
+    --cream:         #F2EDC2;
+    --text-body:     #1e293b;
+    --text-muted:    #475569;
+    --bg-page:       #ffffff;
+    --content-max:   1280px;    /* centred column max width  */
+    --radius:        8px;
+    --gap:           1.5rem;
+    --shadow-map:    0 8px 32px rgba(0, 0, 0, 0.45);
+}
+
+
+/* Global reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    color: var(--text-body);
+    background: var(--bg-page);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+    background: #e2e8f0;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+
+/* Centred content wrapper */
+.content-wrapper {
+    width: min(100% - 2rem, var(--content-max));
+    margin-inline: auto;
+    padding-block: 1rem;
+}
+
+
+/* Header & navigation */
+header {
+    background-color: var(--green-dark);
+    position: relative;
+}
+
+.nav-toggle {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+/* Hamburger icon — hidden on desktop, shown at mobile   */
+.nav-toggle-label {
+    display: none; 
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px 9px;
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    border-radius: 5px;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+
+/* Three lines of the burger icon */
+.nav-toggle-label span {
+    display: block;
+    width: 22px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform 0.28s ease, opacity 0.28s ease;
+}
+
+/* nav toggle icon rotation */
+.nav-toggle:checked ~ .nav-toggle-label span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.nav-toggle:checked ~ .nav-toggle-label span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+.nav-toggle:checked ~ .nav-toggle-label span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Desktop nav layout (default view) */
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem 3rem;
+    list-style: none;
+    margin: 0;
+    padding: 0.9rem 1rem;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    border: 1px solid #fff;
+    padding: 0.3rem 0.6rem;
+    background-color: var(--green-light);
+    border-radius: 3px;
+    transition: background 0.18s ease, color 0.18s ease;
+    white-space: nowrap;
+}
+
+nav ul a:hover {
+    color: var(--cream);
+    background-color: var(--green-pale);
+}
+
+nav a.active {
+    background-color: var(--green-mid);
+    color: var(--cream);
+    font-weight: 700;
+}
+
+
+/* Hero */
+.site-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 38vh;
+    padding: 3rem 1.25rem;
+    text-align: center;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.52)),
+        url("../images/background-images/anemone.jpg") center / cover no-repeat;
+}
+
+h1 {
+    margin: 0 0 0.85rem;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-family: Arima, Verdana, sans-serif;
+    color: #FFEF91;
+    line-height: 1.2;
+}
+
+.site-info p {
+    margin: 0;
+    max-width: 65ch;
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    color: #fff;
+    line-height: 1.65;
+}
+
+
+/* Section headings */
+h2 {
+    margin: 2.5rem 0 0.3rem;
+    font-size: clamp(1.2rem, 2.8vw, 1.7rem);
+    text-align: center;
+    color: var(--green-dark);
+    font-family: system-ui, sans-serif;
+}
+
+/* Decorative underline bar beneath each h2 */
+.rule {
+    width: 50px;
+    height: 5px;
+    background-color: var(--green-pale);
+    margin: 0 auto 1.5rem;
+    border-radius: 3px;
+}
+
+
+/* Body */
+.details {
+    padding: 0.5rem 0;
+    margin: 0 0 0.75rem;
+    text-align: justify;
+    font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 0.03em;
+    line-height: 1.75;
+    color: var(--text-body);
+}
+
+
+/* Static map layout
+/*    Default (mobile): single column.
+      BP 1 (tablet): single column, wider scroll area.
+      BP 2 (desktop): side-by-side grid. */
+.static-map-layout {
+    display: grid;
+    grid-template-columns: 1fr;   /* single column on mobile */
+    gap: var(--gap);
+    align-items: start;
+    margin-bottom: 2.5rem;
+}
+
+.static-map-figure {
+    margin: 0;
+    min-width: 0;
+}
+
+/* Horizontal scroll wrapper — lets tiny screens pan the map
+   without breaking the page layout */
+.static-map-scroll {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius);
+}
+
+
+/* Static map positioned container*/
+.static-map-container {
+    position: relative;         /* anchors all absolute overlays  */
+    width: 100%;
+    max-width: 860px;
+    aspect-ratio: 86 / 58;     /* matches tu_wien.jpg proportions */
+    overflow: hidden;
+    border: 2px solid #334155;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-map);
+    background-color: #1a2234;
+}
+
+/* TU_Wien image positioning */
+.map-base-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    z-index: 0;
+}
+
+/* Map figure caption */
+.static-map-figure figcaption {
+    margin-top: 0.6rem;
+    padding: 0.65rem 0.9rem;
+    color: var(--text-muted);
+    background: #f8fafc;
+    border-left: 4px solid var(--green-mid);
+    border-radius: 5px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+
+/*  Map markers */
+.map-marker {
+    position: absolute;
+    width: 32px;
+    height: 46px;
+    transform: translateX(-50%);
+    margin-top: -46px;          /* pin tip lands exactly on its coordinate  */
+    cursor: default;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.7));
+    transition: transform 0.15s ease, filter 0.15s ease;
+    z-index: 10;
+}
+
+.map-marker img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.map-marker:hover {
+    transform: translateX(-50%) scale(1.25);
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.85));
+    z-index: 20;
+}
+
+/* CSS-only tooltip */
+.map-marker .marker-label {
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    background: rgba(15, 23, 42, 0.92);
+    color: #f1f5f9;
+    font-family: system-ui, sans-serif;
+    font-size: 0.72rem;
+    padding: 4px 9px;
+    border-radius: 4px;
+    border: 1px solid #475569;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 30;
+}
+
+.map-marker:hover .marker-label {
+    opacity: 1;
+}
+
+/* Individual marker positions — percentage-based so they scale
+   with the container at any viewport width                     */
+.marker-hauptgebaeude { top: 63.41%; left: 26.42%; }
+.marker-library       { top: 25.14%; left: 30.56%; }
+.marker-freihaus      { top: 55.79%; left: 83.30%; }
+.marker-kopie         { top: 60.03%; left: 41.98%; }
+
+
+/* Map overlay: rectangular area (Resselpark)  */
+.map-overlay-area {
+    position: absolute;
+    border: 2.5px dashed #22c55e;
+    background: rgba(34, 197, 94, 0.15);
+    border-radius: 3px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.area-resselpark {
+    top: 10.72%;
+    left: 63.05%;
+    width: 19.19%;
+    height: 19.83%;
+}
+
+.map-area-label {
+    position: absolute;
+    top: 4px;
+    left: 6px;
+    font-family: monospace;
+    font-size: 0.62rem;
+    font-weight: 600;
+    color: #4ade80;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Map source credit (bottom-right corner)  */
+.map-source-credit {
+    position: absolute;
+    bottom: 8px;
+    right: 10px;
+    font-family: system-ui, sans-serif;
+    font-size: 0.6rem;
+    color: rgba(241, 245, 249, 0.65);
+    z-index: 15;
+}
+
+
+/* Legend panel*/
+.legend {
+    background: rgba(242, 242, 242, 0.97);
+    border: 1px solid #334155;
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    align-self: start;
+    
+}
+
+.legend h3 {
+    font-size: 1rem;
+    color: #9f8844;
+    margin: 0 0 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.legend-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.legend-table td {
+    padding: 0.55rem 0.4rem;
+    vertical-align: middle;
+    font-size: 0.875rem;
+    color: #333;
+    border-bottom: 1px solid #ccc;
+}
+
+.legend-table tr:last-child td {
+    border-bottom: none;
+}
+
+.legend-table .legend-symbol {
+    width: 48px;
+    text-align: center;
+}
+
+.legend-table .legend-symbol img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 42px;
+    max-height: 36px;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.legend-table .legend-name {
+    width: 135px;
+    font-weight: 700;
+    color: #222;
+}
+
+.legend-table .legend-desc {
+    color: #555;
+    font-size: 0.8rem;
+    line-height: 1.45;
+}
+
+
+/* Photo section */
+.photo-section {
+    margin-bottom: 1.5rem;
+}
+
+.photo-figure {
+    margin: 0;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* picture element and its img child both treated the same */
+.photo-figure picture,
+.photo-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 65vh;
+    object-fit: cover;
+}
+
+.photo-figure figcaption {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.85rem;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--text-muted);
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+}
+
+.photo-figure figcaption a {
+    color: var(--green-mid);
+    text-decoration: underline;
+}
+
+
+/* Excellence Points section  */
+.excellence-section {
+    margin: 2.5rem 0 1rem;
+    padding: 1.6rem 1.75rem;
+}
+
+.excellence-section h2 {
+    margin: 0 0 0.5rem;
+    text-align: left;
+    color: var(--green-mid);
+    font-size: clamp(1.1rem, 2.4vw, 1.45rem);
+}
+
+/* To Override the default .rule centering inside this section */
+.excellence-section + .rule,
+.excellence-section .rule {
+    margin-left: 0;
+}
+
+.excellence-intro {
+    margin: 0 0 1rem;
+    font-size: 0.95rem;
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+.excellence-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.excellence-list li {
+    padding: 0.85rem 1rem;
+    background: #fff;
+    border-radius: 6px;
+    border-left: 4px solid var(--green-pale);
+    font-size: clamp(0.85rem, 1.6vw, 0.92rem);
+    line-height: 1.6;
+    color: #334155;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* Pill-style label for each excellence item */
+.ex-tag {
+    display: inline-block;
+    background: var(--green-mid);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 2px 9px;
+    border-radius: 99px;
+    margin-bottom: 0.35rem;
+    margin-right: 0.3rem;
+    vertical-align: middle;
+}
+
+
+/* Highlightsor Excellence box*/
+.highlights {
+    background-color: #f2edc2;
+    padding: 20px 0;
+    border-top: 5px solid #346739;
+}
+
+.highlights h2 {
+    margin-top: 0;
+}
+
+.highlights .details {
+    border-left: 6px solid #346739;
+    background: #fff;
+    padding: 1em 1.5em;
+    margin: 1em 2em;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(33, 70, 16, 0.10);
+}
+
+
+/* Footer section */
+footer {
+    background-color: var(--green-dark);
+    color: #fff;
+    padding-top: 2rem;
+    margin-top: 3rem;
+}
+
+.footer-inner {
+    padding-block: 0;
+}
+
+.footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+h4 {
+    color: var(--cream);
+    margin: 0 0 0.75rem;
+    font-size: 1rem;
+}
+
+.site-sources {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.site-sources cite {
+    font-style: normal;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.site-sources cite a {
+    color: var(--green-pale);
+    text-decoration: none;
+}
+
+.site-sources cite a:hover {
+    color: var(--cream);
+    text-decoration: underline;
+}
+
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.footer-nav a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    transition: color 0.18s ease;
+}
+
+.footer-nav a:hover {
+    color: var(--green-pale);
+}
+
+.footer-nav a.active {
+    color: rgb(84, 132, 198);
+    font-weight: 700;
+}
+
+.copyright {
+    background-color: rgba(0, 0, 0, 0.28);
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.68);
+    margin-top: 1rem;
+}
+
+
+/*
+   RESPONSIVE BREAKPOINTS
+   Breakpoint 1 (BP 1): min-width 641px,  tablet / landscape phone
+   Breakpoint 2 (BP 2): min-width 1051px, desktop / widescreen*/
+/* ── BREAKPOINT 1: Tablet (641 px and wider)*/
+
+@media (min-width: 641px) {
+
+    /* Slightly larger nav text for tablet */
+    nav ul a {
+        font-size: 1.05rem;
+    }
+
+    /* Wider content column */
+    .content-wrapper {
+        width: min(100% - 3rem, var(--content-max));
+    }
+
+    /* Hero taller on tablet */
+    .site-info {
+        min-height: 44vh;
+    }
+
+    /* Map fills more width */
+    .static-map-container {
+        max-width: 100%;
+    }
+
+    /* Legend description visible as table on tablet */
+    .legend-table .legend-desc {
+        display: table-cell;
+    }
+
+    /* Photo capped height */
+    .photo-figure picture,
+    .photo-figure img {
+        max-height: 60vh;
+    }
+
+}  
+
+
+/* BREAKPOINT 2: Desktop / wide (1051 px and wider) */
+@media (min-width: 1051px) {
+
+    /* Side-by-side grid: map left, legend right */
+    .static-map-layout {
+        grid-template-columns: minmax(0, 860px) minmax(280px, 1fr);
+    }
+
+    /* Sticky legend — stays visible while scrolling past a tall map */
+    .legend {
+        position: sticky;
+        top: 1rem;
+    }
+
+    /* Cap photo height on large screens */
+    .photo-figure picture,
+    .photo-figure img {
+        max-height: 55vh;
+    }
+
+    /* Excellence list as 2-column grid on very wide screens */
+    .excellence-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+    }
+
+    /* Copyright bar narrowed on desktop (original design) */
+    .copyright {
+        width: 60%;
+        margin: 1rem auto 0;
+    }
+
+}   
+
+
+/* Mobile-only overrides (max-width query) */
+/*    These apply only BELOW 641px (small phones / very narrow) */
+@media (max-width: 640px) {
+
+    /* Hamburger toggle  */
+    /* Show hamburger button */
+    .nav-toggle-label {
+        display: flex;
+    }
+
+    /* Give header a minimum height so the burger has room */
+    header {
+        min-height: 54px;
+    }
+
+    /* Reset nav to stacked, hidden by default */
+    nav {
+        width: 100%;
+        background-color: red;
+    }
+
+    nav ul {
+        display: none;             /* hidden until checkbox checked */
+        flex-direction: column;
+        width: 100%;
+        padding: 0.25rem 0;
+        margin: 0;
+        gap: 0;
+    }
+
+    nav ul li {
+        width: 100%;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    /* Full-width tap targets on mobile */
+    nav ul a {
+        display: block;
+        width: 100%;
+        text-align: left;
+        border: none;
+        border-radius: 0;
+        background: transparent;
+        padding: 0.85rem 1.25rem;
+        font-size: 0.95rem;
+    }
+
+    /* CSS-only toggle: check the box  show nav */
+    .nav-toggle:checked ~ nav ul {
+        display: flex;
+    }
+
+    /*  Content */
+    .content-wrapper {
+        width: min(100% - 1rem, var(--content-max));
+    }
+
+    /* Reduce hero height on small screens */
+    .site-info {
+        min-height: 30vh;
+        padding: 2rem 1rem;
+    }
+
+    /* Shrink markers slightly so they don't crowd on small maps */
+    .map-marker {
+        width: 26px;
+        height: 38px;
+        margin-top: -38px;
+    }
+
+    .map-source-credit {
+        font-size: 0.52rem;
+    }
+
+    /* Legend: convert table to stacked block layout */
+    /*    Removes horizontal scrolling inside the legend      */
+    .legend-table,
+    .legend-table tbody,
+    .legend-table tr,
+    .legend-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .legend-table tr {
+        padding: 0.7rem 0;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .legend-table tr:last-child {
+        border-bottom: none;
+    }
+
+    .legend-table td {
+        padding: 0.15rem 0;
+        border-bottom: none;
+    }
+
+    .legend-table .legend-symbol {
+        width: auto;
+        text-align: left;
+        margin-bottom: 0.2rem;
+    }
+
+    .legend-table .legend-symbol img {
+        margin: 0;
+    }
+
+    .legend-table .legend-name {
+        width: auto;
+        font-size: 0.9rem;
+        margin-bottom: 0.15rem;
+    }
+
+    .legend-table .legend-desc {
+        font-size: 0.78rem;
+    }
+
+    /*  Photo*/
+    .photo-figure picture,
+    .photo-figure img {
+        max-height: 52vw;
+    }
+
+    /* Excellence box */
+    .excellence-section {
+        padding: 1.1rem 1rem;
+    }
+
+    /* stack columns*/
+    .footer-top {
+        flex-direction: column;
+        padding: 0 1rem;
+        gap: 1.5rem;
+    }
+
+    .copyright {
+        width: 100%;
+    }
+
+}
+
+
+@media print {
+    header,
+    footer,
+    .excellence-section,
+    .nav-toggle-label {
+        display: none !important;
+    }
+
+    body {
+        font-size: 11pt;
+        color: #000;
+    }
+
+    .site-info {
+        min-height: auto;
+        padding: 1rem;
+        background: none !important;
+        color: #000;
+    }
+
+    h1 { color: #000; font-size: 18pt; }
+    h2 { color: #000; font-size: 14pt; }
+
+    .content-wrapper {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .static-map-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .legend {
+        position: static;
+        border: 1px solid #999;
+        box-shadow: none;
+    }
+
+    .photo-figure picture,
+    .photo-figure img {
+        max-height: none;
+    }
+
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+
+}

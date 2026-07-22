@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Website</title>
+    <link rel="stylesheet" href="./styles/style_mmc3.css">
+</head>
+
+<body>
+
+    
+    <header>
+        <!-- Hidden checkbox powers the CSS-only toggle -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+
+        <!-- Hamburger icon -->
+        <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home - WM1</a></li>
+                <li><a href="mmc2.html">SVG - MMC2</a></li>
+                <li><a href="wm2.html">Static &amp; Leaflet Map - WM2</a></li>
+                <li><a class="active" href="mmc3.html">Responsive Website - MMC3</a></li>
+                <li><a href="wm3.html">Basemap - WM3</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!--Hero Section-->
+    <div class="site-info">
+        <h1>Key Locations on TU Wien Campus and an Image of Bumblebee</h1>
+        <p>
+            A fully responsive web page featuring an HTML and CSS interactive map of TU Wien campus,
+            responsive image, and a mobile-friendly navigation. It adapts from 350 px
+            to Full-HD widescreen.
+        </p>
+    </div>
+
+
+    
+    <main>
+        <div class="content-wrapper">
+            <!--Map A: Static Map-->
+
+            <h2>Map A - Static Map of TU Wien Campus</h2>
+            <div class="rule"></div>
+
+            <section class="static-map-layout" aria-label="Static map and legend">
+
+                <!-- Map figure -->
+
+                <figure class="static-map-figure">
+                    <div class="static-map-scroll">
+                        <div class="static-map-container">
+
+                            <!-- Base satellite image -->
+                            <img src="./images/tu_wien.jpg"
+                                 alt="Google Earth satellite imagery of TU Wien campus"
+                                 class="map-base-image">
+
+                            <!-- Marker 1: Kuppelsaal Building-->
+                            <div class="map-marker marker-freihaus">
+                                <img src="./images/kupersal.svg"
+                                     alt="Blue pin - Kuppelsaal der TU Wien"
+                                     width="32" height="46">
+                                <span class="marker-label">Kuppelsaal der TU Wien</span>
+                            </div>
+
+                            <!-- Marker 2: Bibliothek -->
+                            <div class="map-marker marker-library">
+                                <img src="./images/library.svg"
+                                     alt="Red pin - Bibliothek"
+                                     width="32" height="46">
+                                <span class="marker-label">Bibliothek (Library)</span>
+                            </div>
+
+                            <!-- Marker 3: Freihaus -->
+                            <div class="map-marker marker-hauptgebaeude">
+                                <img src="./images/freihaus.svg"
+                                     alt="Green pin - Freihaus"
+                                     width="32" height="46">
+                                <span class="marker-label">Technische Universität Wien Freihaus</span>
+                            </div>
+
+                            <!-- Marker 4: Die Kopie -->
+                            <div class="map-marker marker-kopie">
+                                <img src="./images/kopei.svg"
+                                     alt="Amber pin - Die Kopie TU Wien"
+                                     width="32" height="46">
+                                <span class="marker-label">Die Kopie TU Wien</span>
+                            </div>
+
+                            <!-- Rectangular overlay, the Resselpark -->
+                             <!--  map-overlay-area for styling -->
+        
+                            <div class="map-overlay-area area-resselpark">
+                                <span class="map-area-label">Resselpark</span>
+                            </div>
+
+                            <div class="map-source-credit">Source: Google Earth Pro</div>
+
+                        </div>
+                    </div>
+
+                    <figcaption>
+                        Static map built with HTML &amp; CSS overlays on a Google Earth Pro
+                        satellite image. Hover over a marker to reveal its label.
+                    </figcaption>
+                </figure>
+
+
+                <!-- Legend panel -->
+                <aside class="legend" role="complementary" aria-label="Map legend">
+                    <h3>Legend</h3>
+                    <table class="legend-table">
+                        <tbody>
+                            <tr>
+                                <td class="legend-symbol">
+                                    <img src="./images/kupersal.svg"
+                                         alt="Blue pin symbol" width="22" height="32">
+                                </td>
+                                <td class="legend-name">Kuppelsaal der TU Wien</td>
+                                <td class="legend-desc">
+                                    One of the best-known ceremonial spaces at TU Wien, used for
+                                    formal events and academic gatherings.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="legend-symbol">
+                                    <img src="./images/library.svg"
+                                         alt="Red pin symbol" width="22" height="32">
+                                </td>
+                                <td class="legend-name">Bibliothek</td>
+                                <td class="legend-desc">
+                                    University Library located within the Hauptgebäude complex.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="legend-symbol">
+                                    <img src="./images/freihaus.svg"
+                                         alt="Green pin symbol" width="22" height="32">
+                                </td>
+                                <td class="legend-name">Freihaus</td>
+                                <td class="legend-desc">
+                                    Home of Mathematics and Geoinformatics at TU Wien.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="legend-symbol">
+                                    <img src="./images/freihaus.svg"
+                                         alt="Green pin symbol" width="22" height="32">
+                                </td>
+                                <td class="legend-name">Freihaus</td>
+                                <td class="legend-desc">
+                                    Home of Mathematics and Geoinformatics at TU Wien.
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="legend-symbol">
+                                    <img src="./images/kopei.svg"
+                                         alt="Amber pin symbol" width="22" height="32">
+                                </td>
+                                <td class="legend-name">Die Kopie TU Wien</td>
+                                <td class="legend-desc">
+                                    Student service point near campus for printing, copying,
+                                    and document preparation.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="legend-symbol">
+                                    <img src="./images/area_park.svg"
+                                         alt="Dashed green rectangle symbol"
+                                         width="40" height="25">
+                                </td>
+                                <td class="legend-name">Resselpark</td>
+                                <td class="legend-desc">
+                                    Campus green space between the main buildings.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </aside>
+
+            </section>
+
+
+            <!-- Bumblebee Photo-->
+            <h2>Bumblebee on Sunflower</h2>
+            <div class="rule"></div>
+
+            <p class="details">
+                The image below shows a bumblebee pollinating a yellow sunflower in summer. Pollinators play a vital role in our ecosystems. The <code>&lt;picture&gt;</code> element below serves a high-resolution file to HiDPI / Retina screens, and the standard version to all other devices.
+            </p>
+
+            <!-- Responsive image with <picture> + srcset
+            • Default   (≤ 300 KB)
+            • high-resolution (≤  1 MB ) -->
+
+            <section class="photo-section">
+                <figure class="photo-figure">
+                    <picture>
+                        <!--  HD image for high-resolution screens only -->
+                        <source
+                            srcset="./images/pexels-1609538911-28620055-hd.jpg"
+                            media = "(min-resolution: 192dpi), (min-resolution: 2dppx)">
+                    
+
+                        <!-- Default version for standard screens -->
+                        <img src="./images/pexels-1609538911-28620055-default.jpg"
+                             alt="A bumblebee pollinating a bright yellow sunflower on a sunny summer day"
+                             id="bee-photo"
+                             loading="lazy">
+                    </picture>
+                    
+
+                    <figcaption>
+                        Photo by Олександр K —
+                        <a href="https://www.pexels.com/photo/bumblebee-pollinating-yellow-flower-in-summer-28620055/"
+                           target="_blank" rel="noopener noreferrer">Pexels</a>
+                    </figcaption>
+                </figure>
+            </section>
+
+            
+          
+        </div>
+    </main>
+  
+     <!-- Excellence points -->
+    <section class="highlights">
+        <div class="content-wrapper">
+            <h2>Extras &amp; Excellence Points</h2>
+            <div class="rule"></div>
+            <ul class="details">
+                <li><strong>CSS-only hover tooltips on the static map:</strong> Each marker reveals a label on hover using only CSS — no JavaScript. Uses <code>opacity: 0</code> transitioning to <code>opacity: 1</code> on <code>.map-marker:hover .marker-label</code>, with <code>pointer-events: none</code> so the tooltip never blocks the marker.</li>
+                <li>CSS-only hamburger navigation where the icon animates into an <strong>X using only checkbox state and CSS transforms.</strong> No JavaScript involved at any point.</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="content-wrapper footer-inner">
+            <div class="footer-top">
+
+                <div class="site-sources">
+                    <h4>Site Sources</h4>
+
+                    <cite>
+                        Static map imagery:
+                    <a href="https://earth.google.com/web/search/48%2e1989,+16%2e3699/@48.19892768,16.36868083,187.85246763a,554.44451916d,35y,0h,0t,0r/data=CiwiJgokCU0dMNa7GUhAEcuwc2I0GUhAGT6olzfFXzBAIWnrmUgjXTBAQgIIAToDCgEwQgIIAEoNCP___________wEQAA?hl=de">Google Earth Pro</a>
+                    </cite>
+                    <cite>
+                        Bumblebee photo:
+                        <a href="https://www.pexels.com/photo/bumblebee-pollinating-yellow-flower-in-summer-28620055/"
+                           target="_blank" rel="noopener noreferrer">
+                            Pexels - Олександр K
+                        </a>
+                    </cite>
+                    <cite>
+                        Background image:
+                        <a href="https://pixabay.com/photos/aloe-green-dew-leaf-thorn-5390681/"
+                           target="_blank" rel="noopener noreferrer">
+                            Pixabay - Nowaja
+                        </a>
+                    </cite>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Navigation</h4>
+                    <a href="index.html">Home - WM1</a>
+                    <a href="mmc2.html">SVG - MMC2</a>
+                    <a href="wm2.html">Static &amp; Leaflet Map - WM2</a>
+                    <a class="active" href="mmc3.html">Responsive Website - MMC3</a>
+                    <a href="wm3.html">Basemap - WM3</a>
+                </div>
+
+            </div>
+
+            <p class="copyright">Copyright &copy; 2026 | All rights reserved</p>
+        </div>
+    </footer>
+</body>
+</html>

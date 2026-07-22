@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WM3 - Donaupark Basemap</title>
+
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/wm3.css">
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.5.0/dist/maplibre-gl.css">
+    <script src="https://unpkg.com/maplibre-gl@5.5.0/dist/maplibre-gl.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home - WM1</a></li>
+                <li><a href="mmc2.html">SVG - MMC2</a></li>
+                <li><a href="wm2.html">Static map and Leaflet map - WM2</a></li>
+                <li><a href="mmc3.html">Responsive Website - MMC3</a></li>
+                <li><a class="active" href="wm3.html">Basemap - WM3</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="site-info">
+            <h1>The Blue and Green Urban Space of Donaupark Wien</h1>
+            <p>
+                This basemap focuses on Donaupark and its surroundings. It maps green spaces, water bodies, roads, and buildings, and was designed in Maputnik to support the green and blue character of the area.
+            </p>
+        </section>
+
+        <section class="wm3-section">
+            <h2>Interactive Vector Tile Basemap of Donaupark</h2>
+            <div class="rule"></div>
+
+            <p class="details">
+                This page uses MapLibre GL JS to display a custom basemap style saved as an external JSON file, with Vienna's open tree cadastre added as a live GeoJSON layer.
+            </p>
+
+            <div class="map-area">
+                <figure class="map-figure">
+                    <div id="map"></div>
+                    <figcaption>
+                        Custom MapLibre basemap of Donaupark, Vienna.
+                    </figcaption>
+                </figure>
+
+                <aside class="legend wm3-legend" aria-label="Map legend">
+                    <h3>Legend</h3>
+                    <ul>
+                        <li>
+                            <span class="legend-symbol legend-forest"></span>
+                            <span>Forest</span>
+                        </li>
+                        <li>
+                            <span class="legend-symbol legend-grass"></span>
+                            <span>Grassland</span>
+                        </li>
+                        <li>
+                            <span class="legend-symbol legend-park"></span>
+                            <span>Parks and gardens</span>
+                        </li>
+                        <li>
+                            <span class="legend-symbol legend-water"></span>
+                            <span>Water bodies</span>
+                        </li>
+                        <li>
+                            <span class="legend-symbol legend-waterway"></span>
+                            <span>Rivers and canals</span>
+                        </li>
+                        <li>
+                            <span class="legend-symbol legend-road"></span>
+                            <span>Main roads</span>
+                        </li>
+                        <li>
+                            <span class="legend-symbol legend-building"></span>
+                            <span>Buildings</span>
+                        </li>
+                        <li>
+                            <span class="legend-symbol legend-boundary"></span>
+                            <span>District boundary</span>
+                        </li>
+                        <li>
+                            <span class="legend-symbol legend-tree"></span>
+                            <span>Vienna tree cadastre</span>
+                        </li>
+                        <li>
+                            <span class="legend-symbol legend-footways"></span>
+                            <span>Footways</span>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+
+        <section class="highlights">
+            <h2>About Donaupark</h2>
+            <div class="rule"></div>
+
+            <p class="details">
+                Donaupark is a public green space in Vienna's 22nd district, Donaustadt. It includes open lawns, planted areas, walking paths, and the Irissee lake, and it is located close to the Alte Donau and the United Nations campus.
+            </p>
+        </section>
+
+        <section class="highlights">
+            <h2>Design Choices</h2>
+            <div class="rule"></div>
+
+            <p class="details">
+                I created the basemap to support the green and blue space theme surrounding Donaupark. The colours become stronger as the user zooms in to make local detail appear more visible. Parks and forests shift from light green to richer green to emphasize vegetation, while buildings shift from pale beige to warmer beige so they remain useful for both orientation and visually secondary to the green and blue spaces. Zoom styling was also applied to widths for the same reason.
+            </p>
+        </section>
+
+        <section class="highlights">
+            <h2>Excellence Highlights</h2>
+            <div class="rule"></div>
+
+            <div class="details">
+                <ul>
+                    <li>
+                        The map includes a legend for some of the layers (not all) that helps users understand the design and the theme.
+                    </li>
+                    <li>
+                        I added 7 extra styled layers and 9 additional filters.
+                    </li>
+                    <li>
+                        A live GeoJSON layer from Vienna's open tree cadastre is added on top of the vector-tile basemap.
+                    </li>
+                    <li>
+                        Tree features are clickable. Selecting a tree opens a popup with available species information from the data.
+                    </li>
+                    <li>
+                        An additional marker of Alte Donau with a popup is added.
+                    </li>
+                    <li>
+                        The basemap has a scale that helps orientation and also help users estimate real-world distances between Donaupark, the Alte Donau, paths, buildings, and tree locations</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+            <div class="site-sources">
+                <h4>Site Sources</h4>
+                <cite>
+                    Map style was created from scratch using
+                    <a href="https://maputnik.github.io" target="_blank">Maputnik</a>
+                    and displayed with
+                    <a href="https://maplibre.org/maplibre-gl-js/docs/" target="_blank">MapLibre GL JS</a>.
+                </cite>
+                <cite>
+                    Vector tiles:
+                    <a href="https://openfreemap.org/" target="_blank">OpenFreeMap</a>,
+                    based on OpenStreetMap data © OpenStreetMap contributors.
+                </cite>
+                <cite>
+                    Tree data:
+                    <a href="https://data.wien.gv.at/" target="_blank">Stadt Wien - data.wien.gv.at</a>,
+                    Baumkataster der Stadt Wien, CC BY 4.0.
+                </cite>
+                <cite>
+                    Background image source:
+                    <a href="https://pixabay.com/users/nowaja-9363663/" target="_blank">
+                        Pixabay user Nowaja
+                    </a>
+                </cite>
+            </div>
+
+            <div class="footer-nav">
+                <h4>Navigation</h4>
+                <a href="index.html">Home - WM1</a>
+                <a href="mmc2.html">SVG - MMC2</a>
+                <a href="wm2.html">Static map and leaflet map - WM2</a>
+                <a href="mmc3.html"> Responsive Website - MMC3</a>
+                <a class="active" href="wm3.html"> Basemap - WM3</a>
+            </div>
+        </div>
+
+        <p class="copyright">Copyright @ 2026 | All rights reserved</p>
+    </footer>
+
+    <script>
+        function escapeHTML(value) {
+            return String(value || 'Not available')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        const map = new maplibregl.Map({
+            container: 'map',
+            style: './styles/style.json',
+            center: [16.4140, 48.2370],
+            zoom: 13,
+            maxBounds: [[15.9, 48.0], [16.85, 48.45]],
+            minZoom: 9,
+            maxZoom: 19
+        });
+
+                map.addControl(new maplibregl.NavigationControl());
+        map.addControl(new maplibregl.ScaleControl({ unit: 'metric' }));
+
+        new maplibregl.Marker({ color: '#91bd7d' })
+            .setLngLat([16.409874, 48.240345])
+            .setPopup(
+                new maplibregl.Popup({ offset: 25 }).setHTML(
+                    '<strong>Donauturm</strong><br>' +
+                    'A landmark inside Donaupark and a useful orientation point on the map.'
+                )
+            )
+            .addTo(map);
+
+        new maplibregl.Marker({ color: '#6bc6d9' })
+            .setLngLat([16.4199, 48.2427])
+            .setPopup(
+                new maplibregl.Popup({ offset: 25 }).setHTML(
+                    '<strong>Alte Donau</strong><br>' +
+                    'This is a major water body beside Donaupark. The marker was place there to emphasize water features (blue spaces) clearly.'
+                )
+            )
+            .addTo(map);
+
+            new maplibregl.Marker({ color: '#FF0000' })
+            .setLngLat([16.42179, 48.25000])
+            .setPopup(
+                new maplibregl.Popup({ offset: 25 }).setHTML(
+                    '<strong>Neue Donau</strong><br>' +
+                    'This is a new water body beside Donaupark. The marker was place there to emphasize water features (blue spaces) clearly.'
+                )
+            )
+            .addTo(map);
+
+        map.on('click', 'tree-points', function (event) {
+            const feature = event.features[0];
+            const properties = feature.properties || {};
+            const species = escapeHTML(properties.GATTUNG_ART || properties.GATTUNG || properties.ART);
+            const number = escapeHTML(properties.BAUMNUMMER || properties.OBJECTID || properties.FID);
+
+            new maplibregl.Popup()
+                .setLngLat(event.lngLat)
+                .setHTML(
+                    '<strong>Vienna tree cadastre</strong><br>' +
+                    'Species: ' + species + '<br>' +
+                    'Tree ID: ' + number
+                )
+                .addTo(map);
+        });
+
+        map.on('mouseenter', 'tree-points', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+        map.on('mouseleave', 'tree-points', function () {
+            map.getCanvas().style.cursor = '';
+        });
+    </script>
+</body>
+
+</html>

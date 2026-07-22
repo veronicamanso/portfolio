@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature Extraction and Image Segmentation</title>
+    <link rel="stylesheet" href="./styles/style.css">
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a class="active" href="index.html">Home - WM1</a></li>
+                <li><a href="mmc2.html">SVG - MMC2</a></li>
+                <li><a href="wm2.html">Static map and leaflet map - WM2</a></li>
+                <li><a href="mmc3.html"> Responsive Website - MMC3</a></li>
+                <li><a href="wm3.html"> Basemap - WM3</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- top section (hero) -->
+        <div class="site-info">
+            <h1>Feature Extraction and Image Segmentation</h1>
+            <p>Feature extraction and image segmentation are methods that transform raw pixel data into meaningful
+                information. I am learning for my interview.
+            </p>
+        </div>
+
+        <h2>About the map</h2>
+        <hr class="rule"> <!-- rule line under the about the map header -->
+        <p class="details">This map was produced from a high-resolution RGB orthophoto of Ottenhofen, Munich. Roads,
+            vegetation, and
+            populated areas were classified using a combination of feature extraction and segmentation methods like
+            spectral, texture, and edge-based image features.
+        </p>
+        <!-- map area -->
+        <section class="map-area">
+            <figure class="map-figure">
+                <img id="map" src="./images/map.png"
+                    alt="Map showing background, built-up areas, roads, and vegetation">
+                <figcaption>
+                    A segmented map showing four distinct features.
+                </figcaption>
+            </figure>
+
+            <div class="legend">
+                <h3>Legend</h3>
+                <ul>
+                    <li><img src="./images/background.png" alt="Background symbol"> Background</li> <!--part of the legend-->
+                    <li><img src="./images/built-ups.png" alt="Built-up areas symbol"> Built-up areas</li>
+                    <li><img src="./images/roads.png" alt="Roads symbol"> Roads</li>
+                    <li><img src="./images/vegetation.png" alt="Vegetation symbol"> Vegetation</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- excellent points -->
+        <section class="highlights">
+            <h2>Excellence Points</h2>
+            <hr class="rule">
+                <ul class="details">
+                    <li>
+                        The page has a semantic structure. Elements such as
+                        <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>,
+                        <code>&lt;figure&gt;</code>, and <code>&lt;figcaption&gt;</code> are used
+                        to improve document structure and readability.<br><br>
+                    </li>
+                    <li>
+                        There is a <strong>Navigation</strong> section at the footer that contains all the links to the pages.
+                        It is for easy access so that users do not have to scroll up to the navbar all the time.
+                    </li>
+                </ul>                
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+            <div class="site-sources">
+                <h4>Site Sources</h4>               
+                <cite>
+                    Map source:
+                    <span> The map was created by myself in a previous project. </span>
+                </cite>
+
+                <cite>
+                    Map data source:
+                    <a href="https://geodaten.bayern.de/opengeodata/OpenDataDetail.html?pn=dop20rgb">
+                        OpenData Bayern DOP20 RGB
+                    </a>
+                </cite>
+
+                <cite>
+                    Background image source:
+                    <a href="https://pixabay.com/photos/aloe-green-dew-leaf-thorn-5390681/">
+                        Pixabay user Nowaja
+                    </a>
+                </cite>
+            </div>
+
+            <div class="footer-nav">
+                <h4>Navigation</h4>
+                <a class="active" href="index.html">Home - WM1</a>
+                <a href="mmc2.html">SVG - MMC2</a>
+                <a href="wm2.html">Static map and leaflet map - WM2</a>
+                <a href="mmc3.html"> Responsive Website - MMC3</a>
+                <a href="wm3.html"> Basemap - WM3</a>
+            </div>
+        </div>
+
+        <p class="copyright">Copyright @ 2026 | All rights reserved</p>
+
+    </footer>
+</body>
+
+</html>

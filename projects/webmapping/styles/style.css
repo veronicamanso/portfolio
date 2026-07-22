@@ -1,0 +1,777 @@
+/* Global reset */
+* {
+    box-sizing: border-box;
+}
+
+/* default styling for the body */
+body {
+    margin:0;
+    padding: 0;
+    font-family: system-ui, sans-serif;
+}
+
+/* header background styling */
+
+header {
+    background-color: #214610f3;
+    display: flex;       
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 20px 0;
+}
+
+/* styling navigation */
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    list-style: none;
+    padding: 0;
+}
+
+/* styling the links, set hover and active state */
+nav ul a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    border: 1px solid #fff;
+    padding: 5px 8px;
+    background-color: #79AE6F;
+}
+
+nav ul a:hover {
+    color: #F2EDC2;
+    background-color: #9FCB98;
+}
+
+nav a.active {
+    background-color: #346739;
+    color: #F2EDC2;
+    font-weight: bold;
+} 
+
+.site-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    background: linear-gradient(rgba(0, 0,0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/background-images/anemone.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.site-info p {
+    margin-left: 1em;
+    margin-right: 1em;
+    text-align: justify;
+}
+
+/* styling for the first heading - Feature extraction and Image processing */
+h1 {
+    margin: 0;
+    font-size: 30px;
+    font-family: Arima, Verdana, sans-serif;
+    color: #FFEF91;
+}
+
+.site-info p {
+    font-size:  20px;
+    color: #fff;
+}
+
+/* about the map styling */
+h2 {
+    margin: 30px 0 0 10px;
+    font-size: 28px;
+    text-align: center;
+    color: #214610f3;
+}
+
+.rule {
+    width: 50px;
+    height: 5px;
+    background-color: #9FCB98;
+    margin: 0 auto;
+}
+
+.details {
+    padding: 0 20px;
+    text-align: justify;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 2px;
+}
+
+/* map and legend side by side */
+.map-area {
+    display: flex;
+    justify-content: flex-start;
+    gap: 5%;
+    align-items: center;
+     background-color: #79ae6fb0;
+}
+
+
+/* size of the map */
+.map-figure {
+    width: 70%;
+}
+
+#map {
+    height: 80vh;
+    display: block;
+    width: 100%;
+}
+
+.map-figure figcaption {
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 800;
+}
+
+/* styling the legend */
+.legend {
+    background: white;
+    color: black;
+    padding: 1em;
+    border: 1px solid #999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.legend ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.legend ul li {
+    padding: 10px 0;
+    display: flex;
+    gap: 5px;
+}
+
+.legend img {
+    width: 22px;
+    height: 22px;
+}
+
+.highlights {
+    background-color: #f2edc2;
+    padding: 20px 0;
+    border-top: 5px solid #346739;
+}
+
+.highlights h2 {
+    margin-top: 0;
+}
+
+.highlights .details {
+    border-left: 6px solid #346739;
+    background: #fff;
+    padding: 1em 1.5em;
+    margin: 1em 2em;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(33,70,16,0.10);
+}
+
+/* styling footer */
+footer {
+    background-color: #214610f3;
+    color: #fff;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+h4 {
+    color: #F2EDC2;
+}
+
+.site-sources, .footer-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.site-sources cite, .footer-nav a {
+    margin: 10px 0;
+}
+
+.footer-nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer-nav a:hover {
+    color: #dc3b229a;
+}
+
+.footer-nav a.active {
+    color: #dc3b22;
+}
+.copyright {
+    background-color: #214610ad;
+    text-align: center;
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+
+/*  */
+/*  */
+/* MMC2 SVG MAP */
+
+.svg-assignment {
+    margin-top: 2rem;
+}
+
+.svg-map-figure {
+    margin: 0;
+    padding: 1rem;
+    background: #ffffff;
+    border: 1px solid #d8e2e8;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgb(0 0 0 / 12%);
+}
+
+.svg-map-figure-original {
+    margin: 0;
+    padding: 1rem;
+    background: #ffffff;
+    border: 1px solid #d8e2e8;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgb(0 0 0 / 12%);
+}
+
+.inline-svg-map {
+    width: 100%;
+    max-height: 75vh;
+    height: auto;
+    display: block;
+    background: #79ae6fb0;
+    border: 1px solid #d8e2e8;
+    border-radius: 14px;
+}
+
+.inline-svg-map-original {
+    width: 100%;
+    max-height: 75vh;
+    height: auto;
+    display: block;
+    background: #79ae6fb0;
+    border: 1px solid #d8e2e8;
+    border-radius: 14px;
+}
+
+.svg-map-figure figcaption {
+    margin-top: 0.8rem;
+    color: #4d5c66;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+/* Permanent CSS overrides */
+.parks-layer {
+    fill: #466dc9;
+}
+
+.settlement-layer {
+    fill: #4f3c24;
+}
+
+.restaurant-layer path {
+    fill: #c354cb;
+}
+
+
+
+/* Map hover effects */
+.parks-layer:hover {
+    fill: #6fdb88;
+    stroke: #0d3a09;
+    stroke-width: 0.25;
+    cursor: pointer;
+}
+
+.streets-layer:hover {
+    stroke: #000000;
+    stroke-width: 1.15;
+    cursor: pointer;
+}
+
+.settlement-layer:hover {
+    fill: #d09a57;
+    stroke: #472e04;
+    stroke-width: 0.22;
+    cursor: pointer;
+}
+
+.bus-stop-layer:hover {
+    fill: #6aa6cf;
+    stroke: #1b1919;
+    stroke-width: 0.22;
+    cursor: pointer;
+}
+
+.restaurant-layer:hover,
+.shopping-mall-layer:hover {
+    filter: brightness(1.08) saturate(1.2);
+    cursor: pointer;
+}
+
+/* Legend styling */
+.legend-item {
+    transition: opacity 0.2s ease;
+}
+
+.legend-item text {
+    transition: font-weight 0.2s ease, fill 0.2s ease;
+}
+
+.legend-item rect,
+.legend-item circle,
+.legend-item line {
+    transition: stroke-width 0.2s ease, filter 0.2s ease;
+}
+
+
+.svg-maps{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    margin-bottom: 10px;
+}
+
+
+/* change svg rectangle */
+.svg-bbox{
+    fill: #0c0101;
+}
+
+
+.svg-legend:hover .legend-background {
+    fill: #f7fbff;
+    stroke: #008e93;
+    stroke-width: 0.5;
+}
+
+.mmc2-highlights {
+    border-left: 6px solid #008e93;
+    background: #e9fbfc;
+}
+
+/* change the colour of the streets to wine */
+.inline-svg-map .streets-layer {
+    stroke: #e10822;
+    cursor: pointer;
+    transition: stroke 0.25s ease, stroke-width 0.25s ease;
+}
+
+
+/* WM2 Styling */
+/* Static map and legend responsive layout  */
+.static-map-layout {
+    width: min(100% - 2rem, 1280px);
+    margin: 2rem auto 3rem;
+    display: grid;
+    grid-template-columns: 1fr;  /* single column on small screens */
+    gap: 1.5rem;
+    align-items: start;
+}
+
+/* Figure keeps image and caption together */
+.static-map-figure {
+    margin: 0;
+    min-width: 0;
+}
+
+/* map scroll allows the map area to behave safely on small screens */
+.static-map-scroll {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-radius: 8px;
+}
+
+/* Static map container*/
+.static-map-container {
+    width: 100%;
+    max-width: 860px;
+    aspect-ratio: 86 / 58;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #334155;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55);
+    background-color: #1a2234;
+    flex-shrink: 0;
+}
+
+/* base image which is the tu_wien image from google earth pro*/
+.map-base-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    z-index: 0;
+}
+
+/* static map figure caption*/
+.static-map-figure figcaption {
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: #475569;
+    background: #f8fafc;
+    border-left: 4px solid #346739;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Map markers positioned % coordinates so they scale responsibly  */
+.map-marker {
+    position: absolute;
+    width: 32px;
+    height: 46px;
+    transform: translateX(-50%);
+    margin-top: -46px;         /* pin tip lands exactly on the coordinate   */
+    cursor: default;
+    transition: transform 0.15s ease, filter 0.15s ease;
+    z-index: 10;
+}
+
+.map-marker img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.map-marker:hover {
+    transform: translateX(-50%) scale(1.25);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.7));
+    z-index: 20;
+}
+
+/* Tooltip on hover */
+.map-marker .marker-label {
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    background: rgba(15, 23, 42, 0.92);
+    color: #f1f5f9;
+    font-family: system-ui, sans-serif;
+    font-size: 0.72rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid #475569;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.map-marker:hover .marker-label {
+    opacity: 1;
+}
+
+/* markers positions (percentage-based so each can be scaled) */
+.marker-hauptgebaeude {
+    top: 63.41%;
+    left: 26.42%;
+}
+
+.marker-library {
+    top: 25.14%;
+    left: 30.56%;
+}
+
+.marker-freihaus {
+    top: 55.79%;
+    left: 83.30%;
+}
+
+.marker-kopie {
+    top: 60.03%;
+    left: 41.98%;
+}
+
+.map-overlay-area {
+    position: absolute;
+    border: 2.5px dashed #22c55e;
+    background: rgba(34, 197, 94, 0.15);
+    border-radius: 3px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.area-resselpark {
+    top: 10.72%;
+    left: 63.05%;
+    width: 19.19%;
+    height: 19.83%;
+}
+.map-area-label {
+    position: absolute;
+    top: 4px;
+    left: 6px;
+    font-family: monospace;
+    font-size: 0.62rem;
+    font-weight: 600;
+    color: #4ade80;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+/*Source credit bottom-right*/
+.map-source-credit {
+    position: absolute;
+    bottom: 8px;
+    right: 10px;
+    font-family: system-ui, sans-serif;
+    font-size: 0.6rem;
+    color: rgba(241, 245, 249, 0.65);
+    z-index: 15;
+}
+
+.map-source-credit a {
+    color: rgba(241, 245, 249, 0.65);
+    text-decoration: underline;
+}
+
+/*Legend panel */
+.static-map-layout .legend {
+    width: 100%;
+    max-width: none;
+    display: block;
+    align-self: start;
+    position: sticky;
+    top: 1rem;
+    background: rgba(236, 236, 236, 0.96);
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+}
+
+.static-map-layout .legend h3 {
+    font-size: 1rem;
+    color: #9f8844;
+    margin: 0 0 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.legend-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.legend-table td {
+    padding: 0.55rem 0.45rem;
+    vertical-align: middle;
+    font-size: 0.875rem;
+    color: #374151;
+    border-bottom: 1px solid #cbd5e1;
+}
+
+.legend-table tr:last-child td {
+    border-bottom: none;
+}
+
+.legend-table .legend-symbol {
+    width: 48px;
+    text-align: center;
+}
+
+.legend-table .legend-symbol img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 42px;
+    max-height: 36px;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.legend-table .legend-name {
+    width: 135px;
+    font-weight: 700;
+    color: #313131;
+}
+
+.legend-table .legend-desc {
+    color: #555555;
+    font-size: 0.8rem;
+    line-height: 1.45;
+}
+
+/* Leaflet map container */
+#leaflet-map {
+    width: 100%;
+    height: 80vh;
+    min-height: 360px;
+    border: 1px solid #334155;
+    margin: 0 auto 2rem;
+}
+
+/* Leaflet custom popup shell */
+.tu-custom-popup .leaflet-popup-content-wrapper {
+    background: rgba(255, 255, 255, 1);
+    color: #4f4f4f;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.65);
+    padding: 0;
+    overflow: hidden;
+}
+
+.tu-custom-popup .leaflet-popup-tip {
+    background: rgba(15, 23, 42, 0.97);
+}
+
+.tu-custom-popup .leaflet-popup-content {
+    margin: 0;
+    padding: 0;
+    min-width: 260px;
+}
+
+.tu-custom-popup .leaflet-popup-close-button {
+    color: #c40000 !important;
+    font-size: 1.1rem !important;
+    top: 10px !important;
+    right: 12px !important;
+}
+
+.tu-custom-popup .leaflet-popup-close-button:hover {
+    color: #f97e7e !important;
+}
+
+/*Popup card inner layout*/
+.tu-popup-card {
+    padding: 1rem 1.1rem 0.9rem;
+}
+
+/* Category label above the title */
+.tu-popup-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #346739;
+    margin-bottom: 4px;
+}
+
+/* Place name */
+.tu-popup-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #030027;
+    margin: 0 0 0.5rem;
+    line-height: 1.3;
+    padding-right: 1.2rem; /* avoid overlap with close button */
+}
+
+/* Description text */
+.tu-popup-description {
+    font-size: 0.8rem;
+    color: #25292e;
+    line-height: 1.55;
+    margin: 0 0 0.75rem;
+}
+
+/* Coordinate chips at the bottom */
+.tu-popup-meta {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    border-top: 1px solid #1e293b;
+    padding-top: 0.6rem;
+    margin-top: 0.1rem;
+}
+
+.tu-popup-chip {
+    background: #e1e1e1;
+    color: #494949;
+    font-family: monospace;
+    font-size: 0.68rem;
+    padding: 2px 7px;
+    border-radius: 99px;
+    border: 1px solid #334155;
+    letter-spacing: 0.03em;
+}
+
+/*Leaflet tooltip*/
+.leaflet-tooltip {
+    background: rgba(15, 23, 42, 0.93) !important;
+    color: #f1f5f9 !important;
+    border: 1px solid #212121 !important;
+    border-radius: 5px !important;
+    font-size: 0.78rem !important;
+    font-family: system-ui, sans-serif !important;
+    padding: 4px 9px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5) !important;
+}
+
+.leaflet-tooltip-top::before {
+    border-top-color: #334155 !important;
+}
+
+/* Resselpark permanent label tooltip*/
+.park-label-tooltip {
+    background: rgba(20, 83, 45, 0.85) !important;
+    color: #86efac !important;
+    border: 1px solid #22c55e !important;
+    border-radius: 4px !important;
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    padding: 3px 7px !important;
+    box-shadow: none !important;
+}
+
+.park-label-tooltip::before {
+    display: none !important;
+}
+
+/* Tablet and up: map and legend side by side */
+@media (min-width: 641px) {
+    .static-map-container {
+        max-width: 100%;
+    }
+}
+
+/* Desktop: two-column grid */
+@media (min-width: 1051px) {
+    .static-map-layout {
+        grid-template-columns: minmax(0, 860px) minmax(280px, 1fr);
+    }
+
+    .static-map-layout .legend {
+        position: sticky;
+        top: 1rem;
+    }
+}

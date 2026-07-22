@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veronica Dadzie Manso - Geomatic Engineer & Geospatial Data Scientist</title>
+<style>
+  :root{
+    --sans:'Poppins','Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;
+    --mono:'JetBrains Mono','Fira Code',ui-monospace,SFMono-Regular,Consolas,monospace;
+  }
+
+  html[data-theme="dark"]{
+    --bg:#1c0f1a;
+    --bg-alt:#2a1522;
+    --card:#2e1826;
+    --border:#4a2438;
+    --text:#f3e4dc;
+    --text-dim:#c99a9a;
+    --heading:#fff3ec;
+    --accent:#ff7a52;
+    --accent-2:#f4438b;
+    --accent-3:#ffb64c;
+    --grad:linear-gradient(120deg,#ff7a52 0%,#f4438b 55%,#7a3b8f 100%);
+  }
+
+  html[data-theme="light"]{
+    --bg:#fff6ee;
+    --bg-alt:#ffece0;
+    --card:#ffffff;
+    --border:#ffd7bf;
+    --text:#4a2f2f;
+    --text-dim:#8a5f5f;
+    --heading:#3a1f2e;
+    --accent:#ff5f3d;
+    --accent-2:#d63384;
+    --accent-3:#e08900;
+    --grad:linear-gradient(120deg,#ffb347 0%,#ff5f7e 55%,#a83279 100%);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.65;
+    transition:background .25s ease,color .25s ease;
+  }
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px;}
+  ::selection{background:var(--accent-2);color:#fff;}
+
+  nav{
+    position:sticky;top:0;z-index:200;
+    background:var(--bg);
+    border-bottom:1px solid var(--border);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
+  .brand{font-family:var(--mono);font-weight:700;color:var(--heading);font-size:16px;}
+  .brand span{
+    color:var(--heading);
+  }
+  .navlinks{display:flex;align-items:center;gap:26px;}
+  .navlinks a{
+    color:var(--text-dim);font-family:var(--sans);font-size:14px;font-weight:600;
+  }
+  .navlinks a:hover{color:var(--accent);text-decoration:none;}
+
+  .theme-toggle{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:38px;height:38px;border-radius:50%;
+    border:1px solid var(--border);background:var(--bg-alt);color:var(--heading);
+    cursor:pointer;font-size:17px;transition:transform .2s ease,border-color .2s ease;
+  }
+  .theme-toggle:hover{border-color:var(--accent);transform:rotate(15deg);}
+
+  #navToggle{
+    display:none;background:none;border:1px solid var(--border);color:var(--heading);
+    border-radius:6px;padding:7px 10px;font-size:18px;cursor:pointer;line-height:1;
+  }
+  .nav-right{display:flex;align-items:center;gap:14px;}
+
+  .hero{
+    padding:110px 0 90px;position:relative;overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:-1;opacity:.14;
+    background:var(--grad);filter:blur(60px);
+  }
+  .eyebrow{
+    font-family:var(--mono);color:var(--accent);font-size:13px;
+    letter-spacing:1.5px;margin-bottom:16px;text-transform:uppercase;
+  }
+  h1.name{
+    font-size:48px;font-weight:800;letter-spacing:-1px;margin-bottom:14px;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .tagline{font-size:18px;color:var(--text-dim);max-width:620px;margin-bottom:30px;}
+  .btn-row{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:13px 26px;border-radius:30px;font-weight:700;font-size:14px;
+    border:none;color:#fff;background:var(--grad);transition:transform .15s ease,box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px -8px var(--accent-2);text-decoration:none;}
+  .btn.secondary{
+    background:transparent;border:1.5px solid var(--border);color:var(--heading);
+  }
+  .btn.secondary:hover{border-color:var(--accent);color:var(--accent);box-shadow:none;}
+
+  section{padding:80px 0;border-bottom:1px solid var(--border);}
+  section:last-of-type{border-bottom:none;}
+  .section-tag{
+    font-family:var(--mono);color:var(--accent);font-size:13px;letter-spacing:1.5px;
+    text-transform:uppercase;margin-bottom:10px;
+  }
+  h2{font-size:30px;font-weight:800;color:var(--heading);margin-bottom:34px;}
+
+  p.lead{color:var(--text-dim);max-width:680px;font-size:16px;}
+
+  .about-grid{display:grid;grid-template-columns:1fr;gap:20px;}
+  .about-card{
+    background:var(--card);border:1px solid var(--border);border-radius:16px;padding:30px;
+  }
+
+  .skill-groups{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .skill-group{
+    background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;
+  }
+  .skill-group h3{
+    font-family:var(--mono);font-size:12.5px;color:var(--accent-2);margin-bottom:14px;
+    letter-spacing:0.5px;text-transform:uppercase;
+  }
+  .tags{display:flex;gap:8px;flex-wrap:wrap;}
+  .tag{
+    font-size:12.5px;font-weight:600;color:var(--heading);
+    background:var(--bg-alt);border:1px solid var(--border);
+    padding:5px 12px;border-radius:20px;
+  }
+
+  .filter-row{display:flex;gap:10px;margin-bottom:28px;flex-wrap:wrap;}
+  .filter-btn{
+    font-size:13px;font-weight:700;padding:8px 18px;border-radius:20px;cursor:pointer;
+    border:1.5px solid var(--border);background:transparent;color:var(--text-dim);
+  }
+  .filter-btn.active{background:var(--grad);color:#fff;border-color:transparent;}
+  .card{
+    background:var(--card);border:1px solid var(--border);border-radius:16px;
+    padding:26px;margin-bottom:20px;transition:transform .15s ease,border-color .15s ease;
+  }
+  .card:hover{transform:translateY(-3px);border-color:var(--accent);}
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:8px;}
+  .card-title{color:var(--heading);font-weight:700;font-size:17px;}
+  .card-sub{color:var(--accent-2);font-size:13px;font-weight:600;margin-top:3px;}
+  .card-date{
+    font-family:var(--mono);font-size:11.5px;color:var(--text-dim);white-space:nowrap;
+    border:1px solid var(--border);padding:4px 11px;border-radius:20px;
+  }
+  .card-desc{color:var(--text-dim);font-size:14.5px;margin-top:10px;}
+  .card .tags{margin-top:16px;}
+  .card-links{display:flex;gap:16px;margin-top:16px;flex-wrap:wrap;}
+  .card-link{font-weight:700;font-size:13px;color:var(--accent);}
+  .card-link:hover{color:var(--accent-2);}
+  .page-list{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+  .page-pill{
+    font-family:var(--mono);font-size:11px;color:var(--text-dim);
+    border:1px solid var(--border);padding:3px 10px;border-radius:6px;
+  }
+  .page-pill:hover{color:var(--accent-2);border-color:var(--accent-2);text-decoration:none;}
+
+  .status-badge{
+    display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:700;
+    text-transform:uppercase;letter-spacing:0.5px;color:var(--accent-3);
+    background:rgba(255,182,76,0.12);border:1px solid rgba(255,182,76,0.4);
+    padding:3px 10px;border-radius:20px;margin-bottom:10px;
+  }
+  .section-note{color:var(--text-dim);font-size:13.5px;max-width:680px;margin:-18px 0 30px;}
+
+  .timeline{border-left:2px solid var(--border);padding-left:28px;margin-left:8px;}
+  .tl-item{position:relative;margin-bottom:34px;}
+  .tl-item::before{
+    content:"";position:absolute;left:-34px;top:4px;width:12px;height:12px;
+    border-radius:50%;background:var(--grad);
+  }
+  .tl-role{color:var(--heading);font-weight:700;font-size:16px;}
+  .tl-org{color:var(--accent-2);font-size:13px;font-weight:600;margin-top:2px;}
+  .tl-date{font-family:var(--mono);font-size:12px;color:var(--text-dim);margin-top:3px;margin-bottom:10px;}
+  .tl-item ul{margin-left:18px;color:var(--text-dim);font-size:14px;}
+  .tl-item ul li{margin-bottom:5px;}
+
+  .contact-card{
+    background:var(--grad);border-radius:20px;padding:44px;color:#fff;
+  }
+  .contact-card h2{color:#fff;}
+  .contact-card p.lead{color:rgba(255,255,255,0.85);}
+  .contact-grid{display:flex;gap:36px;flex-wrap:wrap;margin-top:26px;}
+  .contact-item{font-size:14px;}
+  .contact-item .label{font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.8;display:block;margin-bottom:5px;}
+  .contact-item a{color:#fff;font-weight:700;text-decoration:underline;}
+  .contact-card .btn{background:#fff;color:#a83279;margin-top:26px;}
+  .contact-card .btn:hover{box-shadow:0 8px 22px -8px rgba(0,0,0,0.35);}
+
+  footer.site-footer{padding:30px 0;text-align:center;}
+  .foot-note{color:var(--text-dim);font-size:12.5px;font-family:var(--mono);}
+
+  @media (max-width:760px){
+    .navlinks{
+      display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;
+      background:var(--bg);padding:18px 24px;border-bottom:1px solid var(--border);gap:16px;
+    }
+    .navlinks.open{display:flex;}
+    #navToggle{display:inline-block;}
+    h1.name{font-size:36px;}
+    .skill-groups{grid-template-columns:1fr;}
+    .card-date{white-space:normal;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Veronica <span>Manso</span></div>
+    <div class="navlinks" id="navlinks">
+      <a href="#about">About Me</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Portfolio</a>
+      <a href="#writing">Writing</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">🌙</button>
+      <button id="navToggle" onclick="document.getElementById('navlinks').classList.toggle('open')" aria-label="Toggle menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="hero">
+  <div class="wrap">
+    <div class="eyebrow">Geomatic Engineer · Cartographer · Geospatial Data Scientist · Geo-Health Mapper</div>
+    <h1 class="name">Veronica Dadzie Manso</h1>
+    <p class="tagline">
+      I design geovisualizations and interactive web maps that turn complex geospatial data into clear,
+      actionable insight - with a focus on public-health and environmental risk mapping.
+    </p>
+    <div class="btn-row">
+      <a class="btn" href="#projects">View My Work</a>
+      <a class="btn secondary" href="Veronica_Manso_Resume.pdf" download>Download Resume</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-tag">Get to know me</div>
+    <h2>About Me</h2>
+    <div class="about-grid">
+      <div class="about-card">
+        <p class="lead" style="color:var(--text);">
+          I'm an Erasmus Mundus Joint Master's student in Cartography with structured mobility at Technical
+          University of Munich (Germany), Vienna University of Technology (Austria), Dresden University of
+          Technology (Germany), and the University of Twente (Netherlands). I hold a First-Class Honours degree
+          in BSc Geomatic Engineering from the University of Mines and Technology, Ghana. My work sits at the
+          intersection of geospatial data quality, remote sensing, spatial analysis, and geo / public health
+          mapping. As a cartographer, I specialize in geovisualization, map design, and clear spatial data
+          communication, applying these skills to develop interactive web maps using tools such as Leaflet.js
+          and MapLibre GL JS.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-tag">What I work with</div>
+    <h2>Skills</h2>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h3>Cartography</h3>
+        <div class="tags"><span class="tag">Geovisualization</span><span class="tag">Cartographic Design</span><span class="tag">Map Symbology</span><span class="tag">Spatial Data Storytelling</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>Programming & Analysis</h3>
+        <div class="tags"><span class="tag">Python</span><span class="tag">R</span><span class="tag">MATLAB</span><span class="tag">JavaScript</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>GIS & Remote Sensing</h3>
+        <div class="tags"><span class="tag">ArcGIS Pro</span><span class="tag">QGIS</span><span class="tag">SatScan</span><span class="tag">GeoDa</span><span class="tag">Geovia Surpac</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>Web Mapping</h3>
+        <div class="tags"><span class="tag">Leaflet.js</span><span class="tag">MapLibre GL JS</span><span class="tag">Maputnik</span><span class="tag">HTML/CSS</span><span class="tag">SVG</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>Design & Office</h3>
+        <div class="tags"><span class="tag">AutoCAD</span><span class="tag">Affinity Designer</span><span class="tag">MS Office</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-tag">Selected work</div>
+    <h2>Portfolio / Projects</h2>
+
+    <div class="filter-row">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="research">Research</button>
+      <button class="filter-btn" data-filter="software">Web / Software</button>
+    </div>
+
+    <div class="card" data-cat="software">
+      <div class="card-top">
+        <div>
+          <div class="card-title">Web Mapping Coursework Site - TU Wien Cartography</div>
+          <div class="card-sub">5-page interactive web mapping project</div>
+        </div>
+        <div class="card-date">2026</div>
+      </div>
+      <div class="card-desc">
+        A multi-page site covering five techniques: a static feature-extraction/segmentation map, an
+        Inkscape-built SVG neighbourhood map, an interactive Leaflet.js campus map with custom markers and
+        popups, a fully responsive CSS-only site, and a custom MapLibre GL JS vector-tile basemap of Donaupark,
+        Vienna with a live GeoJSON tree-cadastre layer.
+      </div>
+      <div class="tags">
+        <span class="tag">JavaScript</span><span class="tag">Leaflet.js</span><span class="tag">MapLibre GL JS</span>
+        <span class="tag">SVG</span><span class="tag">Responsive CSS</span>
+      </div>
+      <div class="card-links"><a class="card-link" href="projects/webmapping/index.html">View Project →</a></div>
+      <div class="page-list">
+        <a class="page-pill" href="projects/webmapping/index.html">WM1</a>
+        <a class="page-pill" href="projects/webmapping/mmc2.html">MMC2 · SVG</a>
+        <a class="page-pill" href="projects/webmapping/wm2.html">WM2 · Leaflet</a>
+        <a class="page-pill" href="projects/webmapping/mmc3.html">MMC3 · Responsive</a>
+        <a class="page-pill" href="projects/webmapping/wm3.html">WM3 · MapLibre</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="research">
+      <div class="card-top">
+        <div>
+          <div class="card-title">Spatial Hotspots of Mpox Risk in the DR Congo</div>
+          <div class="card-sub">Geo-Health Project · Supervisor: Prof. Justine Blanford</div>
+        </div>
+        <div class="card-date">Oct 2025 – Feb 2026</div>
+      </div>
+      <div class="card-desc">
+        Combined weighted risk criteria from multiple geospatial datasets using multi-criteria decision analysis
+        (MCDA) to map mpox-risk zones across 19 health zones, with spatial data quality checks to support
+        public-health resource allocation.
+      </div>
+      <div class="tags"><span class="tag">MCDA</span><span class="tag">GIS</span><span class="tag">Public Health</span></div>
+    </div>
+
+    <div class="card" data-cat="research">
+      <div class="card-top">
+        <div>
+          <div class="card-title">SAR-Based Land-Cover Classification Using CV-CNN</div>
+          <div class="card-sub">Big Geospatial Data Project · Supervisor: Dr. Kwasi Nyako Poku-Agyemang</div>
+        </div>
+        <div class="card-date">Oct 2025 – Feb 2026</div>
+      </div>
+      <div class="card-desc">
+        Automated land-cover classification of agricultural land into 15 classes using SAR remote sensing data;
+        compared complex-valued CNN against conventional CNN approaches. Presented as a poster at TU Munich, 2025.
+      </div>
+      <div class="tags"><span class="tag">SAR</span><span class="tag">Deep Learning</span><span class="tag">Python</span></div>
+    </div>
+
+    <div class="card" data-cat="research">
+      <div class="card-top">
+        <div>
+          <div class="card-title">Data Quality Assessment of Geodetic Observations</div>
+          <div class="card-sub">Undergraduate Thesis · Supervisor: Prof. Yao Yevenyo Ziggah</div>
+        </div>
+        <div class="card-date">Jan – Aug 2023</div>
+      </div>
+      <div class="card-desc">
+        Assessed data quality on geodetic observations using robust estimation - the Danish method, RANSAC, and
+        Data Snooping. All methods handled outliers with satisfactory accuracy; RANSAC flagged the most.
+      </div>
+      <div class="tags"><span class="tag">Statistics</span><span class="tag">RANSAC</span><span class="tag">Geodesy</span></div>
+    </div>
+
+    <div class="card" data-cat="research">
+      <div class="card-top">
+        <div>
+          <div class="card-title">Land Use Land Cover Change - Tarkwa-Nsuaem District, Ghana</div>
+          <div class="card-sub">Urban Planning Project · Supervisor: Dr. Michael Aduah</div>
+        </div>
+        <div class="card-date">Mar – Apr 2023</div>
+      </div>
+      <div class="card-desc">
+        Captured LULC changes across selected areas of the district and produced a ten-year LULC prediction
+        analysis.
+      </div>
+      <div class="tags"><span class="tag">Remote Sensing</span><span class="tag">LULC</span><span class="tag">GIS</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="writing">
+  <div class="wrap">
+    <div class="section-tag">Papers & essays</div>
+    <h2>Writing</h2>
+    <p class="section-note">
+      These are academic papers and essays I've written - coursework and drafts, not necessarily
+      peer-reviewed publications. Status is noted on each entry.
+    </p>
+
+    <div class="card">
+      <span class="status-badge">Seminar Paper · Coursework</span>
+      <div class="card-top">
+        <div>
+          <div class="card-title">Communicating Uncertainty in Flood Hazard Maps for Non-Expert Users</div>
+          <div class="card-sub">Seminar in Geosciences · International Master's in Cartography</div>
+        </div>
+        <div class="card-date">Jun 2026</div>
+      </div>
+      <div class="card-desc">
+        A structured literature review examining how uncertainty in flood hazard maps can be communicated to
+        non-expert users without reducing comprehension or usability. Finds that intuitive visual design, plain
+        legend language, familiar colour schemes, and testing with intended users are more effective than
+        technical probability labels or dense uncertainty graphics.
+      </div>
+      <div class="tags">
+        <span class="tag">Flood Risk</span><span class="tag">Uncertainty Visualization</span>
+        <span class="tag">Cartographic Design</span><span class="tag">Usability</span>
+      </div>
+      <div class="card-links"><a class="card-link" href="writing/Flood_Hazard_Communication.pdf" target="_blank">Read PDF →</a></div>
+    </div>
+
+    <div class="card">
+      <span class="status-badge">Course Project Report</span>
+      <div class="card-top">
+        <div>
+          <div class="card-title">Spatial Hotspots of Mpox Risks in the Democratic Republic of Congo: A Health-Zone Analysis</div>
+          <div class="card-sub">GeoHealth Course · University of Twente (ITC)</div>
+        </div>
+        <div class="card-date">Feb 2026</div>
+      </div>
+      <div class="card-desc">
+        A spatial statistics project analyzing Mpox case data across health zones in the Democratic Republic of
+        Congo. Applies global and local spatial autocorrelation (Global and Anselin Local Moran's I) under
+        multiple spatial weighting schemes - Queen contiguity, fixed distance bands, and k-nearest neighbors -
+        to identify significant hotspots and inform public-health resource allocation. Supervised by Prof. Dr.
+        Justine I. Blanford and Prof. Yanchao Cheng.
+      </div>
+      <div class="tags">
+        <span class="tag">Spatial Statistics</span><span class="tag">Moran's I</span>
+        <span class="tag">Public Health</span><span class="tag">GIS</span>
+      </div>
+      <div class="card-links"><a class="card-link" href="writing/Mpox_GeoHealth_Report.pdf" target="_blank">Read PDF →</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-tag">Where I've worked</div>
+    <h2>Experience</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-role">Teaching and Research Assistant</div>
+        <div class="tl-org">UMaT Geomatic Department, Ghana</div>
+        <div class="tl-date">Nov 2023 – Sept 2025</div>
+        <ul>
+          <li>Supervised undergraduate students on field and research work</li>
+          <li>Organized tutorial sessions in GIS, Remote Sensing, and Cartography</li>
+          <li>Assisted with GNSS receiver operation, data collection, and surveying</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-role">Intern</div>
+        <div class="tl-org">Achiever's Geo-Consult, Tarkwa</div>
+        <div class="tl-date">Oct 2022 – Jan 2023</div>
+        <ul>
+          <li>Volume computation for a mining company; cadastral surveying</li>
+          <li>Assisted in real estate development and community resettlement</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-role">Intern</div>
+        <div class="tl-org">Geo-Tech Surveys, Ringway Estate, Osu</div>
+        <div class="tl-date">Jun 2022 – Aug 2022</div>
+        <ul>
+          <li>Conducted cadastral and general/engineering surveying</li>
+          <li>Undertook geo-technical projects</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-role">Intern</div>
+        <div class="tl-org">Geo-Tech Systems, Samora Machel Rd, Accra</div>
+        <div class="tl-date">Oct 2021 – Dec 2021</div>
+        <ul>
+          <li>Calibration, distribution, and maintenance of positioning instruments</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <div class="section-tag" style="color:#fff;opacity:.85;">Get in touch</div>
+      <h2>Contact</h2>
+      <p class="lead">Open to research collaborations, internships, and mapping projects.</p>
+      <div class="contact-grid">
+        <div class="contact-item"><span class="label">Email</span><a href="mailto:mansoveronica23@gmail.com">mansoveronica23@gmail.com</a></div>
+        <div class="contact-item"><span class="label">Phone</span><span>+49 177 3690955</span></div>
+        <div class="contact-item"><span class="label">Location</span><span>Dresden, Germany</span></div>
+      </div>
+      <a class="btn" href="Veronica_Manso_Resume.pdf" download>Download Resume (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-note">© 2026 Veronica Dadzie Manso</div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.navlinks a').forEach(a=>{
+    a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open'));
+  });
+
+  const root = document.documentElement;
+  const toggleBtn = document.getElementById('themeToggle');
+  function applyTheme(theme){
+    root.setAttribute('data-theme', theme);
+    toggleBtn.textContent = theme === 'dark' ? '🌙' : '☀️';
+    try{ localStorage.setItem('portfolio-theme', theme); }catch(e){}
+  }
+  let saved = null;
+  try{ saved = localStorage.getItem('portfolio-theme'); }catch(e){}
+  const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+  applyTheme(saved || (prefersLight ? 'light' : 'dark'));
+  toggleBtn.addEventListener('click', ()=>{
+    applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('#projects .card');
+  filterBtns.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      filterBtns.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      cards.forEach(c=>{
+        c.style.display = (filter === 'all' || c.dataset.cat === filter) ? '' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>

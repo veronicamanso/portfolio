@@ -1,0 +1,768 @@
+{
+  "version": 8,
+  "name": "Donaupark Wien",
+  "metadata": {
+    "maputnik:renderer": "mlgljs",
+    "description": "Donaupark, Basemap"
+  },
+  "sources": {
+    "OpenFreeMap": {
+      "type": "vector",
+      "url": "https://tiles.openfreemap.org/planet"
+    },
+    "trees": {
+      "type": "geojson",
+      "data": "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:BAUMKATOGD&srsName=EPSG:4326&outputFormat=json",
+      "attribution": "Stadt Wien - data.wien.gv.at, Baumkataster, CC BY 4.0"
+    }
+  },
+  "sprite": "",
+  "glyphs": "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "background-warm-paper",
+      "type": "background",
+      "paint": {
+        "background-color": "#fbf5df"
+      }
+    },
+    {
+      "id": "landuse-parks-gardens",
+      "type": "fill",
+      "source": "OpenFreeMap",
+      "source-layer": "landuse",
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "park",
+          "garden",
+          "recreation_ground"
+        ]
+      ],
+      "paint": {
+        "fill-color": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          9,
+          "#dcefc1",
+          13,
+          "#a8d979",
+          18,
+          "#75b957"
+        ],
+        "fill-opacity": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          9,
+          0.48,
+          13,
+          0.72,
+          18,
+          0.86
+        ]
+      }
+    },
+    {
+      "id": "landcover-forest",
+      "type": "fill",
+      "source": "OpenFreeMap",
+      "source-layer": "landcover",
+      "filter": [
+        "all",
+        [
+          "any",
+          [
+            "==",
+            "class",
+            "forest"
+          ],
+          [
+            "==",
+            "subclass",
+            "forest"
+          ]
+        ]
+      ],
+      "paint": {
+        "fill-color": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          9,
+          "#91bd7d",
+          13,
+          "#5f9e58",
+          18,
+          "#2f6f3e"
+        ],
+        "fill-opacity": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          9,
+          0.45,
+          13,
+          0.68,
+          18,
+          0.78
+        ]
+      }
+    },
+    {
+      "id": "landcover-grass",
+      "type": "fill",
+      "source": "OpenFreeMap",
+      "source-layer": "landcover",
+      "filter": [
+        "all",
+        [
+          "==",
+          "class",
+          "grass"
+        ]
+      ],
+      "paint": {
+        "fill-color": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          9,
+          "#dcefc1",
+          13,
+          "#bde88b",
+          18,
+          "#a9df73"
+        ],
+        "fill-opacity": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          9,
+          0.45,
+          13,
+          0.68,
+          18,
+          0.82
+        ]
+      }
+    },
+    {
+      "id": "landuse-residential",
+      "type": "fill",
+      "source": "OpenFreeMap",
+      "source-layer": "landuse",
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "residential",
+          "suburb",
+          "neighbourhood"
+        ]
+      ],
+      "paint": {
+        "fill-color": "#f3ead6",
+        "fill-opacity": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          10,
+          0.18,
+          14,
+          0.32,
+          18,
+          0.48
+        ]
+      }
+    },
+    {
+      "id": "water-bodies",
+      "type": "fill",
+      "source": "OpenFreeMap",
+      "source-layer": "water",
+      "paint": {
+        "fill-color": "#6bc6d9",
+        "fill-opacity": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          9,
+          0.82,
+          14,
+          0.95
+        ]
+      }
+    },
+    {
+      "id": "waterway-rivers-canals",
+      "type": "line",
+      "source": "OpenFreeMap",
+      "source-layer": "waterway",
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "river",
+          "canal",
+          "stream"
+        ]
+      ],
+      "paint": {
+        "line-color": "#3aa6c2",
+        "line-opacity": 0.88,
+        "line-width": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          9,
+          0.7,
+          13,
+          1.8,
+          16,
+          4.4,
+          19,
+          7.5
+        ]
+      }
+    },
+    {
+      "id": "park-outlines",
+      "type": "line",
+      "source": "OpenFreeMap",
+      "source-layer": "landuse",
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "park",
+          "garden",
+          "recreation_ground"
+        ]
+      ],
+      "paint": {
+        "line-color": "#5b9f55",
+        "line-opacity": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          10,
+          0.35,
+          14,
+          0.65,
+          18,
+          0.85
+        ],
+        "line-width": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          10,
+          0.4,
+          14,
+          1.0,
+          18,
+          1.8
+        ]
+      }
+    },
+    {
+      "id": "buildings-muted-context",
+      "type": "fill",
+      "source": "OpenFreeMap",
+      "source-layer": "building",
+      "minzoom": 14,
+      "paint": {
+        "fill-color": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          14,
+          "#eadfce",
+          16,
+          "#d4c7b8",
+          19,
+          "#b9a391"
+        ],
+        "fill-opacity": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          14,
+          0.28,
+          16,
+          0.48,
+          19,
+          0.72
+        ],
+        "fill-outline-color": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          14,
+          "#d5c8b8",
+          16,
+          "#b8aa9b",
+          19,
+          "#967f6f"
+        ]
+      }
+    },
+    {
+      "id": "railways",
+      "type": "line",
+      "source": "OpenFreeMap",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "rail",
+          "subway",
+          "tram"
+        ]
+      ],
+      "paint": {
+        "line-color": "#9f9b90",
+        "line-opacity": 0.45,
+        "line-width": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          10,
+          0.35,
+          14,
+          0.9,
+          18,
+          1.6
+        ],
+        "line-dasharray": [
+          1.5,
+          1.2
+        ]
+      }
+    },
+    {
+      "id": "roads-main",
+      "type": "line",
+      "source": "OpenFreeMap",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "motorway",
+          "trunk",
+          "primary",
+          "secondary",
+          "tertiary"
+        ]
+      ],
+      "paint": {
+        "line-color": "#d7cbbd",
+        "line-opacity": 0.46,
+        "line-width": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          9,
+          1.0,
+          13,
+          2.8,
+          16,
+          6.0,
+          19,
+          12.0
+        ]
+      }
+    },
+    {
+      "id": "roads-minor",
+      "type": "line",
+      "source": "OpenFreeMap",
+      "source-layer": "transportation",
+      "minzoom": 13,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "minor",
+          "service",
+          "track"
+        ]
+      ],
+      "paint": {
+        "line-color": "#fffdf6",
+        "line-opacity": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          13,
+          0.16,
+          16,
+          0.42,
+          19,
+          0.66
+        ],
+        "line-width": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          13,
+          0.35,
+          16,
+          1.2,
+          19,
+          2.2
+        ]
+      }
+    },
+    {
+      "id": "paths-footways",
+      "type": "line",
+      "source": "OpenFreeMap",
+      "source-layer": "transportation",
+      "minzoom": 13,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "path",
+          "pedestrian",
+          "footway",
+          "cycleway"
+        ]
+      ],
+      "paint": {
+        "line-color": "#b4875c",
+        "line-opacity": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          13,
+          0.32,
+          16,
+          0.62,
+          19,
+          0.85
+        ],
+        "line-width": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          13,
+          0.35,
+          16,
+          1.15,
+          19,
+          2.1
+        ],
+        "line-dasharray": [
+          2,
+          1
+        ]
+      }
+    },
+    {
+      "id": "boundary",
+      "type": "line",
+      "source": "OpenFreeMap",
+      "source-layer": "boundary",
+      "filter": [
+        "all",
+        [
+          "in",
+          "admin_level",
+          9,
+          "9",
+          10,
+          "10"
+        ]
+      ],
+      "paint": {
+        "line-color": "#070604",
+
+        "line-opacity": 0.45,
+        "line-width": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          10,
+          0.65,
+          14,
+          1.4,
+          18,
+          2.0
+        ],
+        "line-dasharray": [
+          3,
+          3
+        ]
+      }
+    },
+    {
+      "id": "tree-points",
+      "type": "circle",
+      "source": "trees",
+      "paint": {
+        "circle-color": "#23552f",
+        "circle-opacity": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          10,
+          0.2,
+          13,
+          0.45,
+          16,
+          0.68,
+          19,
+          0.88
+        ],
+        "circle-radius": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          10,
+          0.35,
+          13,
+          0.9,
+          16,
+          2.8,
+          19,
+          7.5
+        ],
+        "circle-stroke-color": "#f7fff0",
+        "circle-stroke-width": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          15,
+          0,
+          17,
+          0.5,
+          19,
+          1.1
+        ]
+      }
+    },
+    {
+      "id": "place-labels",
+      "type": "symbol",
+      "source": "OpenFreeMap",
+      "source-layer": "place",
+      "minzoom": 8,
+      "maxzoom": 16,
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "city",
+          "town",
+          "village",
+          "suburb",
+          "neighbourhood"
+        ]
+      ],
+      "layout": {
+        "text-field": "{name}",
+        "text-font": [
+          "Open Sans Regular"
+        ],
+        "text-size": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          8,
+          11,
+          12,
+          14,
+          16,
+          18
+        ],
+        "text-anchor": "center"
+      },
+      "paint": {
+        "text-color": "#40513b",
+        "text-halo-color": "rgba(255, 252, 242, 0.92)",
+        "text-halo-width": 1.4,
+        "text-opacity": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          8,
+          0.85,
+          15,
+          0.65
+        ]
+      }
+    },
+    {
+      "id": "tree-species-labels",
+      "type": "symbol",
+      "source": "trees",
+      "minzoom": 17,
+      "layout": {
+        "text-field": "{GATTUNG_ART}",
+        "text-font": [
+          "Open Sans Regular"
+        ],
+        "text-size": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          17,
+          9,
+          19,
+          12
+        ],
+        "text-anchor": "left",
+        "text-offset": [
+          1.2,
+          0.1
+        ],
+        "text-justify": "left",
+        "text-optional": true
+      },
+      "paint": {
+        "text-color": "#204425",
+        "text-halo-color": "rgba(255, 255, 245, 0.9)",
+        "text-halo-width": 1.2,
+        "text-opacity": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          17,
+          0.0,
+          18,
+          0.65,
+          19,
+          0.95
+        ]
+      }
+    }
+  ]
+}

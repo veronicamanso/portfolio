@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WM2 - Static Map &amp; Leaflet Map</title>
+
+    <!-- main stylesheet -->
+    <link rel="stylesheet" href="./styles/style.css">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home - WM1</a></li>
+                <li><a href="mmc2.html">SVG - MMC2</a></li>
+                <li><a class="active" href="wm2.html">Static map &amp; Leaflet - WM2</a></li>
+                <li><a href="mmc3.html">Responsive Website - MMC3</a></li>
+                <li><a href="wm3.html">Basemap - WM3</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="site-info">
+            <h1>Key Locations in TU Wien Campus.</h1>
+            <p>
+                This page consists of two location maps. The first map is a hand-coded static HTML/CSS campus map of
+                <strong>TU Wien</strong>, and the other one is an interactive Leaflet map of the same area.
+                The maps show four significant buildings on TU Wien main campus at Resselgasse, Vienna's 4th district.
+                These areas are: the <em>Kuppelsaal</em> (Domed Hall), the <em>Bibliothek</em> (University Library),
+                the <em>Freihaus</em> ( Wiedner Hauptstraße), and <em>Die Kopie</em>
+                (Printing Shop). The <em>Resselpark</em> (green campus park) is marked as an area overlay.
+            </p>
+        </div>
+
+        <!-- MAP A – STATIC HTML/CSS MAP -->
+        <h2>Map A - Static Map of TU Wien Campus</h2>
+        <div class="rule"></div>
+
+        <section class="static-map-layout" aria-label="Static map and legend">
+            <figure class="static-map-figure">
+                <div class="static-map-scroll">
+                    <div class="static-map-container">
+
+                        <!-- Base satellite image from Google Earth Pro -->
+                        <img src="./images/tu_wien.jpg"
+                            alt="Google Earth satellite imagery of TU Wien campus"
+                            class="map-base-image">
+
+                         <!-- Marker 1: Kuppelsaal -->
+                            <div class="map-marker marker-freihaus">
+                                <img src="./images/kupersal.svg"
+                                     alt="Blue pin - Kuppelsaal der TU Wien"
+                                     width="32" height="46">
+                                <span class="marker-label">Kuppelsaal der TU Wien</span>
+                            </div>
+
+                            <!-- Marker 2: Bibliothek -->
+                            <div class="map-marker marker-library">
+                                <img src="./images/library.svg"
+                                     alt="Red pin - Bibliothek"
+                                     width="32" height="46">
+                                <span class="marker-label">Bibliothek (Library)</span>
+                            </div>
+
+                            <!-- Marker 3: Freihaus -->
+                            <div class="map-marker marker-hauptgebaeude">
+                                <img src="./images/freihaus.svg"
+                                     alt="Green pin - Freihaus"
+                                     width="32" height="46">
+                                <span class="marker-label">Technische Universität Wien Freihaus</span>
+                            </div>
+
+                            <!-- Marker 4: Die Kopie -->
+                            <div class="map-marker marker-kopie">
+                                <img src="./images/kopei.svg"
+                                     alt="Amber pin - Die Kopie TU Wien"
+                                     width="32" height="46">
+                                <span class="marker-label">Die Kopie TU Wien</span>
+                            </div>
+
+                            <!-- Rectangular area: Resselpark -->
+                            <div class="map-overlay-area area-resselpark">
+                                
+                               <span class="map-area-label">Resselpark</span>
+                            </div>
+
+                           <div class="map-source-credit">
+                                Source: Google Earth Pro
+                           </div>
+
+                    </div>
+                </div>
+
+                <figcaption>
+                    Map with HTML, CSS and a satellite image from Google Earth Pro
+                </figcaption>
+            </figure>
+
+            <!-- Legend: explains each point symbol and the area overlay -->
+            <aside class="legend" role="complementary" aria-label="Map legend">
+                <h3>Legend</h3>
+
+                <table class="legend-table">
+                    <tbody>
+                        <tr>
+                            <td class="legend-symbol">
+                                <img src="./images/kupersal.svg" alt="Blue pin symbol" width="22" height="32">
+                            </td>
+                            <td class="legend-name">Kuppelsaal der TU Wien</td>
+                            <td class="legend-desc">
+                                Kuppelsaal is the domed Hall of TU Wien. Used for formal events, academic gatherings, and representative university functions.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="legend-symbol">
+                                <img src="./images/library.svg" alt="Red pin symbol" width="22" height="32">
+                            </td>
+                            <td class="legend-name">Bibliothek</td>
+                            <td class="legend-desc">
+                                University library which is easily recognized by a large owl sculptures on its exterior and located directly across from Karlsplatz.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="legend-symbol">
+                                <img src="./images/freihaus.svg" alt="Green pin symbol" width="22" height="32">
+                            </td>
+                            <td class="legend-name">Freihaus</td>
+                            <td class="legend-desc">
+                                Contains lecture halls, the Mensa, Mathematics, Cartography and Geoinformation departments and other buildings.
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="legend-symbol">
+                                <img src="./images/kopei.svg" alt="Amber pin symbol" width="22" height="32">
+                            </td>
+                            <td class="legend-name">Die Kopie TU Wien</td>
+                            <td class="legend-desc">
+                                Die Kopie is a practical student service point near campus, useful for printing, copying, and document preparation.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="legend-symbol">
+                                <img src="./images/area_park.svg" alt="Dashed green rectangle symbol" width="40" height="25">
+                            </td>
+                            <td class="legend-name">Resselpark</td>
+                            <td class="legend-desc">
+                                Campus green space between the main buildings.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </aside>
+        </section>
+
+
+        <!-- MAP B - INTERACTIVE LEAFLET MAP -->
+        <h2>Map B - Interactive Leaflet  Map of TU Wien</h2>
+        <div class="rule"></div>
+
+        <div id="leaflet-map" aria-label="Interactive map of TU Wien campus"></div>
+
+        <!-- Excellence points -->
+        <section class="highlights">
+            <h2>Extras &amp; Excellence Points</h2>
+            <div class="rule"></div>
+            <ul class="details">
+                <li>Popup cards have eyebrow label, prominent place name, description text, and coordinate chips at the bottom that overrides Leaflet's default popup appearance</li>
+                <li>Resselpark drawn as a dashed green rectangle from bounding box coordinates, with a permanent "Resselpark" label sitting inside it</li>
+                <li>Map automatically fits its bounds to include all markers on load using <code>fitBounds()</code></li>
+            </ul>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="footer-top">
+            <div class="site-sources">
+                <h4>Site Sources</h4>
+                <cite>
+                    Static map imagery:
+                    <a href="https://earth.google.com/web/search/48%2e1989,+16%2e3699/@48.19892768,16.36868083,187.85246763a,554.44451916d,35y,0h,0t,0r/data=CiwiJgokCU0dMNa7GUhAEcuwc2I0GUhAGT6olzfFXzBAIWnrmUgjXTBAQgIIAToDCgEwQgIIAEoNCP___________wEQAA?hl=de">Google Earth Pro</a>               </cite>
+
+                <cite>Point symbols: custom SVG icons were created by me</cite>
+
+                <cite>
+                    Leaflet map tiles:
+                    <a href="https://www.openstreetmap.org/copyright" target="_blank"
+                       rel="noopener noreferrer">© OpenStreetMap contributors</a>
+                </cite>
+
+                <cite>
+                    Leaflet library:
+                    <a href="https://leafletjs.com" target="_blank"
+                       rel="noopener noreferrer">leafletjs.com</a>
+                    (BSD-2-Clause)
+                </cite>
+
+                <cite>
+                    Background image source:
+                    <a href="https://pixabay.com/users/nowaja-9363663/"
+                       target="_blank" rel="noopener noreferrer">
+                        Pixabay user Nowaja
+                    </a>
+                </cite>
+            </div>
+
+
+            <div class="footer-nav">
+                <h4>Navigation</h4>
+                <a href="index.html">Home - WM1</a>
+                <a href="mmc2.html">SVG - MMC2</a>
+                <a class="active" href="wm2.html">Static map &amp; Leaflet - WM2</a>
+                <a href="mmc3.html">Responsive Website - MMC3</a>
+                <a href="wm3.html">Basemap - WM3</a>
+            </div>
+        </div>
+
+        <p class="copyright">Copyright © 2026 | All rights reserved</p>
+    </footer>
+
+
+    <!--Interactive map of TU Wien Uisng Leaflet-->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+    <script>
+    /* Initialised after the DOM is fully loaded to ensure the map elements loads properly*/
+    document.addEventListener('DOMContentLoaded', function () {
+
+        /* 1. Create the map instance
+         setView([lat, lng], zoom) centres the map.
+           The exact view is overridden later by fitBounds(),
+           for safe fall back*/
+    
+        const map = L.map('leaflet-map', {
+
+            zoomControl:      true,   /* keep the zoom buttons */
+            scrollWheelZoom:  true    /* allow mouse-wheel zooming  */
+        }).setView([48.19880474845531, 16.3694059271376], 16);
+
+
+        /*. Add the tile layer (basemap)
+         Using Breton OSM tiles as an alternative tile provider.
+           with attribution*/
+        L.tileLayer('https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png', {
+            maxZoom:     19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles courtesy of <a href="http://www.openstreetmap.bzh/" target="_blank">Breton OpenStreetMap Team</a>'
+        }).addTo(map);
+
+        /*. Place data
+           Each object holds:
+             name        – display label used in popups & tooltips
+             type        – category shown as an eyebrow label
+             coords      – [lat, lng] pair for the marker
+             iconUrl     – path to the custom SVG pin image
+             description – text shown inside the popup card*/
+
+        const places = [
+            {
+                name:        'Library',
+                type:        'Study & Research',
+                coords:      [48.19957134110396, 16.367568075303584],
+                iconUrl:     './images/library.svg',
+                description: 'The TU Wien Library is a key study and research location on campus. It is easily recognized by a large owl sculptures on its exterior and located directly across from Karlsplatz.'
+            },
+            {
+                name:        'Kuppelsaal der TU Wien',
+                type:        'Domed/Historic Hall',
+                coords:      [48.19892802040898, 16.369885618025094],
+                iconUrl:     './images/kupersal.svg',
+                description: 'Kuppelsaal is one of the best-known ceremonial spaces at TU Wien, used for formal events, academic gatherings, and representative university functions.'
+            },
+            {
+                name:        'Technische Universität Wien Freihaus',
+                type:        'Teaching & Campus Life',
+                coords:      [48.19890394517991, 16.36710719651462],
+                iconUrl:     './images/freihaus.svg',
+                description: 'The Freihaus is one of TU Wien\'s major campus buildings, Contains lecture halls, the Mensa, Mathematics, Cartography and Geoinformation departments and other buildings.'
+            },
+            {
+                name:        'Die Kopie TU Wien',
+                type:        'Student Service',
+                coords:      [48.198844286651145, 16.368115363425595],
+                iconUrl:     './images/kopei.svg',
+                description: 'Die Kopie is a practical student service point near campus, useful for printing, copying, and document preparation.'
+            },
+
+             {
+                name:        'Reseslgasse',
+                type:        'park',
+                coords:      [48.19944419, 16.37083325595],
+                iconUrl:     './images/kopei.svg',
+                description: 'Die Kopie is a practical student service point near campus, useful for printing, copying, and document preparation.'
+            }
+
+
+        ];
+
+        /* create a custom Leaflet icon from an SVG*/
+        function createIcon(iconUrl) {
+            return L.icon({
+                iconUrl:     iconUrl,
+                iconSize:    [36, 52],
+                iconAnchor:  [18, 52], 
+                popupAnchor: [0, -56]
+            });
+        }
+
+        /* build the HTML string for a popup card
+           Coordinates are formatted to 5 decimal places
+           and shown as small chips at the bottom of the card. */
+        function createPopup(place) {
+            const lat = place.coords[0].toFixed(5);
+            const lng = place.coords[1].toFixed(5);
+            return `
+                <div class="tu-popup-card">
+                    <div class="tu-popup-eyebrow">${place.type}</div>
+                    <h3 class="tu-popup-title">${place.name}</h3>
+                    <p class="tu-popup-description">${place.description}</p>
+                    <div class="tu-popup-meta">
+                        <span class="tu-popup-chip">Lat ${lat}</span>
+                        <span class="tu-popup-chip">Lng ${lng}</span>
+                    </div>
+                </div>`;
+        }
+
+        /* Add a marker for each place
+           bindPopup  – attaches the styled popup card
+           bindTooltip – shows the place name on hover, positioned
+                         above the pin tip using a negative y offset
+           markers[]  – collected for fitBounds() in step 8 */
+        const markers = [];
+
+        places.forEach(function (place) {
+            const marker = L.marker(place.coords, {
+                icon:  createIcon(place.iconUrl),
+                title: place.name,   /* shown in the browser on hover*/
+                alt:   place.name
+            })
+            .addTo(map)
+            .bindPopup(createPopup(place), {
+                maxWidth:  320,
+                className: 'tu-custom-popup'   /* targets custom CSS overrides */
+            })
+            .bindTooltip(place.name, {
+                direction: 'top',
+                offset:    [0, -54],    /* clear the pin tip */
+                opacity:   0.97
+            });
+
+            markers.push(marker);
+        });
+
+        /* Resselpark area as a dashed rectangle
+           L.rectangle takes [south, west] and [north, east] corners.
+           The bounding box was read from OpenStreetMap relation data.
+           A permanent tooltip acts as an always-visible area label.
+           A click popup is also bound for consistency with the markers.
+         */
+        const parkBbox = [16.368824, 48.199442, 16.370289, 48.199982]; /* [w, s, e, n] */
+
+        L.rectangle(
+            [[parkBbox[1], parkBbox[0]], [parkBbox[3], parkBbox[2]]],
+            {
+                color:       '#FF0000',   /* green stroke                       */
+                weight:      2,
+                dashArray:   '6 4',       /* dashed border matches static map   */
+                fillColor:   '#22c55e',
+                fillOpacity: 0.12
+            }
+        )
+        .addTo(map)
+        .bindTooltip('Resselpark', {
+            permanent:  true,             /* makes the label visible always */
+            direction:  'center',
+            className:  'park-label-tooltip',
+            opacity:    1
+        })
+        .bindPopup(
+            `<div class="tu-popup-card">
+                <h3 class="tu-popup-title">Resselpark</h3>
+                <p class="tu-popup-description">Campus green space between the main buildings</p>
+            </div>`
+        );
+
+        /*Fit the map view to include all markers by using L.featureGroup, which creates a bounding box for the markers. 
+        The pad(0.18) function adds 18% extra space around the edges
+        invalidateSize() is called after a brief delay to address rendering issues that may arise from the container not being fully rendered at map initialization. */
+
+        const group = L.featureGroup(markers);
+        map.fitBounds(group.getBounds().pad(0.18));
+
+        setTimeout(function () { map.invalidateSize(); }, 200);
+    });
+    </script>
+
+</body>
+</html>
