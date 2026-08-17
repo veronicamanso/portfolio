@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Veronica Dadzie Manso - Geomatic Engineer, Cartographer, Geo-Health Analyst & Geospatial Data Scientist</title>
+<title>Veronica Dadzie Manso - Geomatic Engineer, Cartographer & Geospatial Data Scientist</title>
 <meta name="description" content="Portfolio of Veronica Dadzie Manso - Geomatic Engineer, Cartographer, and Geospatial Data Scientist.">
-<meta property="og:title" content="Veronica Dadzie Manso - Geomatic Engineer, Cartographer, Geo-Health Analyst & Geospatial Data Scientist">
+<meta property="og:title" content="Veronica Dadzie Manso - Geomatic Engineer, Cartographer & Geospatial Data Scientist">
 <meta property="og:description" content="Interactive portfolio featuring cartography, web mapping, and geo-health research projects.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://veronicamanso.github.io/portfolio/">
@@ -63,10 +63,6 @@
     border-bottom:1px solid var(--border);
   }
   nav .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;}
-  .brand{font-family:var(--mono);font-weight:700;color:var(--heading);font-size:16px;}
-  .brand span{
-    color:var(--heading);
-  }
   .navlinks{display:flex;align-items:center;gap:26px;}
   .navlinks a{
     color:var(--text-dim);font-family:var(--sans);font-size:14px;font-weight:600;
@@ -94,6 +90,18 @@
   .hero::before{
     content:"";position:absolute;inset:0;z-index:-1;opacity:.14;
     background:var(--grad);filter:blur(60px);
+  }
+  .hero-inner{display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap;}
+  .hero-text{flex:1 1 420px;min-width:280px;}
+  .hero-photo-wrap{flex:0 0 auto;}
+  .hero-photo{
+    width:220px;height:220px;border-radius:50%;object-fit:cover;
+    border:3px solid var(--border);box-shadow:0 12px 34px -14px rgba(0,0,0,0.35);
+  }
+  @media (max-width:760px){
+    .hero-inner{flex-direction:column;text-align:center;}
+    .hero-photo{width:150px;height:150px;}
+    .btn-row{justify-content:center;}
   }
   .eyebrow{
     font-family:var(--mono);color:var(--accent);font-size:13px;
@@ -130,6 +138,11 @@
     background:var(--card);border:1px solid var(--border);border-radius:16px;padding:30px;
   }
   .about-card p.lead{max-width:none;text-align:justify;}
+  .edu-label{
+    font-family:var(--mono);font-size:12.5px;color:var(--accent-2);letter-spacing:0.5px;
+    text-transform:uppercase;margin-bottom:10px;margin-top:22px;
+  }
+  .edu-label:first-child{margin-top:0;}
 
   .skill-groups{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
   .skill-group{
@@ -236,14 +249,13 @@
 
 <nav>
   <div class="wrap">
-    <div class="brand">Veronica Dadzie <span>Manso</span></div>
     <div class="navlinks" id="navlinks">
       <a href="#about">About Me</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
       <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
       <a href="#writing">Writing</a>
-      <a href="#experience">Experience</a>
+      <a href="#experience">Work Experience</a>
+      <a href="#skills">Tools / Software</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-right">
@@ -255,15 +267,22 @@
 
 <header class="hero" id="hero">
   <div class="wrap">
-    <div class="eyebrow">Geomatic Engineer · Cartographer · Geo-Health Analyst · Geospatial Data Scientist</div>
-    <h1 class="name">Veronica Dadzie Manso</h1>
-    <p class="tagline">
-      I'm a geospatial researcher dedicated to building a more livable planet by bridging advanced spatial
-      analysis with human-centered cartography.
-    </p>
-    <div class="btn-row">
-      <a class="btn" href="#projects">View My Projects</a>
-      <a class="btn secondary" href="CV, Veronica Dadzie Manso.pdf" download>Download Resume</a>
+    <div class="hero-inner">
+      <div class="hero-photo-wrap">
+        <img class="hero-photo" src="images/veronica-headshot.jpg" alt="Veronica Dadzie Manso">
+      </div>
+      <div class="hero-text">
+        <div class="eyebrow">Geomatic Engineer · Cartographer · Geospatial Data Scientist</div>
+        <h1 class="name">Veronica Dadzie Manso</h1>
+        <p class="tagline">
+          I'm a geospatial researcher dedicated to building a more livable planet by bridging advanced spatial
+          analysis with human-centered cartography.
+        </p>
+        <div class="btn-row">
+          <a class="btn" href="#projects">View My Projects</a>
+          <a class="btn secondary" href="CV, Veronica Dadzie Manso.pdf" download>Download Resume</a>
+        </div>
+      </div>
     </div>
   </div>
 </header>
@@ -292,35 +311,105 @@
           and MapLibre GL JS.
         </p>
       </div>
+      <div class="about-card">
+        <div class="edu-label">Education</div>
+        <p class="lead" style="color:var(--text);">Erasmus Mundus Joint Master's in Cartography - TU Munich, TU Wien, TU Dresden, and the University of Twente</p>
+        <p class="lead" style="color:var(--text);margin-top:8px;">BSc Geomatic Engineering - University of Mines and Technology (UMaT), Ghana</p>
+        <div class="edu-label">Research Areas</div>
+        <p class="lead" style="color:var(--text);">Geo-visualization, Cartography, Remote Sensing and GIS Applications, Big Geospatial Data, Geo-Health</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="skills">
+<section id="research">
   <div class="wrap">
-    <div class="section-tag">What I work with</div>
-    <h2>Skills</h2>
-    <div class="skill-groups">
-      <div class="skill-group">
-        <h3>Cartography</h3>
-        <div class="tags"><span class="tag">Geovisualization</span><span class="tag">Cartographic Design</span><span class="tag">Map Symbology</span><span class="tag">Spatial Data Storytelling</span></div>
+    <div class="section-tag">Academic research</div>
+    <h2>Research Experience</h2>
+
+    <div class="card">
+      <div class="card-top">
+        <div>
+          <div class="card-title">Evaluating OCHA Humanitarian Icons under a Natural Disaster Frame: Interpretation, Perceived Icon Characteristics, and User Priorities</div>
+          <div class="card-sub">Manuscript in Preparation for Peer-Reviewed Submission (Co-author)</div>
+        </div>
+        <div class="card-date">May 2026 – Jul 2026</div>
       </div>
-      <div class="skill-group">
-        <h3>Programming & Analysis</h3>
-        <div class="tags"><span class="tag">Python</span><span class="tag">R</span><span class="tag">MATLAB</span><span class="tag">JavaScript</span></div>
+      <div class="card-desc">
+        <ul style="padding-left:18px;">
+          <li>Analyzed icon-interpretation responses from 70 participants, providing the study's accuracy data, and authored the Participants section of the manuscript</li>
+          <li>Shelter, prioritized by 88.6% of participants, was correctly recognized by only 57%, revealing a gap between icon importance and recognizability</li>
+          <li>Perceived semantic distance was identified as the strongest predictor of correct interpretation across all 15 icons tested, exceeding the effects of visual simplicity and user expertise</li>
+        </ul>
       </div>
-      <div class="skill-group">
-        <h3>GIS & Remote Sensing</h3>
-        <div class="tags"><span class="tag">ArcGIS Pro</span><span class="tag">QGIS</span><span class="tag">SatScan</span><span class="tag">GeoDa</span><span class="tag">Geovia Surpac</span></div>
+      <div class="tags"><span class="tag">Icon Design</span><span class="tag">Symbol Legibility</span><span class="tag">User Study</span><span class="tag">Humanitarian Cartography</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div>
+          <div class="card-title">Spatial Hotspots of Mpox Risks in Democratic Republic of the Congo: A Health-Zone Analysis</div>
+          <div class="card-sub">Geo-Health Project (Supervisor: Prof Justine Blanford and Prof Yanchao Cheng)</div>
+        </div>
+        <div class="card-date">Oct 2025 – Feb 2026</div>
       </div>
-      <div class="skill-group">
-        <h3>Web Mapping</h3>
-        <div class="tags"><span class="tag">Leaflet.js</span><span class="tag">MapLibre GL JS</span><span class="tag">Maputnik</span><span class="tag">HTML/CSS</span><span class="tag">SVG</span></div>
+      <ul style="padding-left:18px;">
+        <li>Applied five spatial-weighting methods (Queen contiguity, fixed distance band, k-nearest neighbors) to map Mpox risk across 200 health zones in the DR Congo</li>
+        <li>Found significant positive spatial autocorrelation (p &lt; 0.001) across all five methods, with k = 4 nearest neighbors (I = 0.259, z = 5.86) yielding the highest result</li>
+        <li>Findings supported prioritizing surveillance and diagnostic resources in Sankuru, Tshuapa, Sud-Kivu, and Maniema provinces, based on persistent hotspots identified across all methods</li>
+      </ul>
+      <div class="tags"><span class="tag">Hotspots Analysis</span><span class="tag">Spatial autocorrelation</span><span class="tag">epidemiology</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div>
+          <div class="card-title">Complex-valued Convolutional Neural Network for Land-Cover Classification</div>
+          <div class="card-sub">Big Geospatial Data Project · Supervisor: Dr. Kwasi Nyako Poku-Agyemang</div>
+        </div>
+        <div class="card-date">Oct 2025 – Feb 2026</div>
       </div>
-      <div class="skill-group">
-        <h3>Design & Office</h3>
-        <div class="tags"><span class="tag">AutoCAD</span><span class="tag">Affinity Designer</span><span class="tag">MS Office</span></div>
+      <div class="card-desc">
+        <ul style="padding-left:18px;">
+          <li>Contributed to automated land-cover classification of agricultural land into 15 classes using SAR data, comparing Complex-valued CNN (CV - CNN) and Real-valued CNN (RV - CNN) approaches</li>
+          <li>CV-CNN attained 93.21% accuracy compared to 92.14% for RV - CNN (Cohen's κ = 0.942 vs. 0.928), with the largest gain observed for crops such as rapeseed (+18.83% in F1-score)</li>
+        </ul>
       </div>
+      <div class="tags"><span class="tag">SAR</span><span class="tag">Deep Learning</span><span class="tag">Python</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div>
+          <div class="card-title">Data Quality Assessment of Geodetic Observations</div>
+          <div class="card-sub">Undergraduate Thesis · Supervisor: Prof. Yao Yevenyo Ziggah</div>
+        </div>
+        <div class="card-date">Jan – Aug 2023</div>
+      </div>
+      <div class="card-desc">
+        <ul style="padding-left:18px;">
+          <li>Performed data validation (outlier detection) on geodetic observations using threshold values of robust estimation methods such as Danish, Thompson Tau and RANSAC using MATLAB.</li>
+          <li>All the robust estimation methods can detect and handle outliers in the observations with satisfactory accuracy levels. Nevertheless, the Random Sample Consensus (RANSAC) algorithm conceded the greatest number of outliers.</li>
+        </ul>
+      </div>
+      <div class="tags"><span class="tag">Statistics</span><span class="tag">Robust Estimation Methods</span><span class="tag">Data Validation</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div>
+          <div class="card-title">Land Use Land Cover Change - Tarkwa-Nsuaem District, Ghana</div>
+          <div class="card-sub">Urban Planning Project · Supervisor: Dr. Michael Aduah</div>
+        </div>
+        <div class="card-date">Mar – Apr 2023</div>
+      </div>
+      <div class="card-desc">
+        <ul style="padding-left:18px;">
+          <li>The research captured the Land Use and Land Cover (LULC) changes in some areas in Tarkwa-Nsuaem District.</li>
+          <li>The research predicted a ten-year LULC analysis for the selected areas.</li>
+        </ul>
+      </div>
+      <div class="tags"><span class="tag">Remote Sensing</span><span class="tag">LULC</span><span class="tag">Spatial Analysis</span></div>
     </div>
   </div>
 </section>
@@ -335,6 +424,7 @@
       <button class="filter-btn" data-filter="software">Web Mapping</button>
       <button class="filter-btn" data-filter="design">Static and Thematic Maps</button>
       <button class="filter-btn" data-filter="storymap">GeoStorytelling</button>
+      <button class="filter-btn" data-filter="dashboard">Dashboard</button>
     </div>
 
     <div class="card" data-cat="software">
@@ -356,7 +446,7 @@
       </div>
       <div class="tags">
         <span class="tag">JavaScript</span><span class="tag">Leaflet.js</span><span class="tag">MapLibre GL JS</span>
-        <span class="tag">SVG</span><span class="tag">Responsive CSS</span>
+        <span class="tag">Responsiveness</span><span class="tag">Maputnik</span>
       </div>
       <div class="card-links"><a class="card-link" href="projects/webmapping/index.html">View Project →</a></div>
       <div class="page-list">
@@ -505,7 +595,7 @@
       </div>
       <img class="card-thumb" src="Story_Map/Storymap_Lake_Bosomtwe%20of%20Ghana.png" alt="The Lake Volta of Ghana storymap introduction">
       <div class="card-desc">
-        In 1965, the Akosombo Dam brought power to a newly independent Ghana, but it came at a massive cost. To build the dam — which still supplies about 85% of the country's electricity today — the government flooded the homes and histories of nearly 80,000 citizens across 700 villages. Built in GeoNode (WeMap), this interactive Geostory explores the ongoing tension between national development and environmental justice. By combining three immersive maps, a community carousel, and narrative text, it works as spatial data journalism to document what these communities sacrificed and the climate threats they still face today
+        In 1965, the Akosombo Dam brought power to a newly independent Ghana, but it came at a massive cost. To build the dam - which still supplies about 85% of the country's electricity today - the government flooded the homes and histories of nearly 80,000 citizens across 700 villages. Built in GeoNode (WeMap), this interactive Geostory explores the ongoing tension between national development and environmental justice. By combining three immersive maps, a community carousel, and narrative text, it works as spatial data journalism to document what these communities sacrificed and the climate threats they still face today
       </div>
       <div class="tags">
         <span class="tag">Storytelling</span><span class="tag">Cartography</span><span class="tag">Flooding</span>
@@ -514,98 +604,31 @@
       <div class="card-links"><a class="card-link" href="https://jmnode.geocentive.at:7443/catalogue/uuid/ed5275c1-e5e0-48e6-8e2f-f4250c06f9cd" target="_blank" rel="noopener">View the interactive GeoStory →</a></div>
     </div>
 
-  </div>
-</section>
-
-<section id="research">
-  <div class="wrap">
-    <div class="section-tag">Academic research</div>
-    <h2>Research Experience</h2>
-
-    <div class="card">
+    <div class="card" data-cat="dashboard">
       <div class="card-top">
         <div>
-          <div class="card-title">Evaluating OCHA Humanitarian Icons under a Natural Disaster Frame: Interpretation, Perceived Icon Characteristics, and User Priorities</div>
-          <div class="card-sub">Manuscript in Preparation for Peer-Reviewed Submission (Co-author)</div>
+          <div class="card-title">Kenya Protected and Conserved Areas Dashboard</div>
+          <div class="card-sub">RCMRD Project</div>
         </div>
-        <div class="card-date">May 2026 – Jul 2026</div>
+        <div class="card-date">Jul 2026</div>
       </div>
+      <img class="card-thumb" src="projects/webmapping/kenya-pca-dashboard-screenshot.png" alt="Kenya Protected and Conserved Areas Dashboard showing map, indicators, and charts">
       <div class="card-desc">
-        <ul style="padding-left:18px;">
-          <li>Analyzed icon-interpretation responses from 70 participants, providing the study's accuracy data, and authored the Participants section of the manuscript</li>
-          <li>Shelter, prioritized by 88.6% of participants, was correctly recognized by only 57%, revealing a gap between icon importance and recognizability</li>
-          <li>Perceived semantic distance was identified as the strongest predictor of correct interpretation across all 15 icons tested, exceeding the effects of visual simplicity and user expertise</li>
-        </ul>
+        This dashboard maps Kenya's Protected and Conserved Areas (PCAs).
+        It draws on the RCoE Geoportal's Kenya Biodiversity dataset. The dashboard combines an interactive map,
+        summary indicators, and dynamic charts. It reports 352 PCAs with mapped boundaries, covering 80.7k square
+        kilometres in total. It also tracks 23 point-located PCAs. A pie chart breaks down IUCN designation
+        categories. A bar chart compares national and international designation types. A country filter and
+        searchable PCA list drive cross-filtering. Selections update the charts, indicators, and map view in real
+        time. A sortable table ranks the ten largest PCAs by GIS area.
       </div>
-      <div class="tags"><span class="tag">Icon Design</span><span class="tag">Symbol Legibility</span><span class="tag">User Study</span><span class="tag">Humanitarian Cartography</span></div>
+      <div class="tags">
+        <span class="tag">ArcGIS Online</span><span class="tag">Dashboard Design</span>
+        <span class="tag">Biodiversity Mapping</span><span class="tag">Data Visualization</span>
+      </div>
+      <div class="card-links"><a class="card-link" href="https://www.arcgis.com/apps/dashboards/afea007813c140b5903a1815064a605f" target="_blank" rel="noopener">View Live Dashboard →</a></div>
     </div>
 
-    <div class="card">
-      <div class="card-top">
-        <div>
-          <div class="card-title">Spatial Hotspots of Mpox Risks in Democratic Republic of the Congo: A Health-Zone Analysis</div>
-          <div class="card-sub">Geo-Health Project (Supervisor: Prof Justine Blanford and Prof Yanchao Cheng)</div>
-        </div>
-        <div class="card-date">Oct 2025 – Feb 2026</div>
-      </div>
-      <ul style="padding-left:18px;">
-        <li>Applied five spatial-weighting methods (Queen contiguity, fixed distance band, k-nearest neighbors) to map Mpox risk across 200 health zones in the DR Congo</li>
-        <li>Found significant positive spatial autocorrelation (p &lt; 0.001) across all five methods, with k = 4 nearest neighbors (I = 0.259, z = 5.86) yielding the highest result</li>
-        <li>Findings supported prioritizing surveillance and diagnostic resources in Sankuru, Tshuapa, Sud-Kivu, and Maniema provinces, based on persistent hotspots identified across all methods</li>
-      </ul>
-      <div class="tags"><span class="tag">Hotspots Analysis</span><span class="tag">Spatial autocorrelation</span><span class="tag">epidemiology</span></div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <div>
-          <div class="card-title">Complex-valued Convolutional Neural Network for Land-Cover Classification</div>
-          <div class="card-sub">Big Geospatial Data Project · Supervisor: Dr. Kwasi Nyako Poku-Agyemang</div>
-        </div>
-        <div class="card-date">Oct 2025 – Feb 2026</div>
-      </div>
-      <div class="card-desc">
-        <ul style="padding-left:18px;">
-          <li>Contributed to automated land-cover classification of agricultural land into 15 classes using SAR data, comparing Complex-valued CNN (CV - CNN) and Real-valued CNN (RV - CNN) approaches</li>
-          <li>CV-CNN attained 93.21% accuracy compared to 92.14% for RV - CNN (Cohen's κ = 0.942 vs. 0.928), with the largest gain observed for crops such as rapeseed (+18.83% in F1-score)</li>
-        </ul>
-      </div>
-      <div class="tags"><span class="tag">SAR</span><span class="tag">Deep Learning</span><span class="tag">Python</span></div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <div>
-          <div class="card-title">Data Quality Assessment of Geodetic Observations</div>
-          <div class="card-sub">Undergraduate Thesis · Supervisor: Prof. Yao Yevenyo Ziggah</div>
-        </div>
-        <div class="card-date">Jan – Aug 2023</div>
-      </div>
-      <div class="card-desc">
-        <ul style="padding-left:18px;">
-          <li>Performed data validation (outlier detection) on geodetic observations using threshold values of robust estimation methods such as Danish, Thompson Tau and RANSAC using MATLAB.</li>
-          <li>All the robust estimation methods can detect and handle outliers in the observations with satisfactory accuracy levels. Nevertheless, the Random Sample Consensus (RANSAC) algorithm conceded the greatest number of outliers.</li>
-        </ul>
-      </div>
-      <div class="tags"><span class="tag">Statistics</span><span class="tag">Robust Estimation Methods</span><span class="tag">Data Validation</span></div>
-    </div>
-
-    <div class="card">
-      <div class="card-top">
-        <div>
-          <div class="card-title">Land Use Land Cover Change - Tarkwa-Nsuaem District, Ghana</div>
-          <div class="card-sub">Urban Planning Project · Supervisor: Dr. Michael Aduah</div>
-        </div>
-        <div class="card-date">Mar – Apr 2023</div>
-      </div>
-      <div class="card-desc">
-        <ul style="padding-left:18px;">
-          <li>The research captured the Land Use and Land Cover (LULC) changes in some areas in Tarkwa-Nsuaem District.</li>
-          <li>The research predicted a ten-year LULC analysis for the selected areas.</li>
-        </ul>
-      </div>
-      <div class="tags"><span class="tag">Remote Sensing</span><span class="tag">LULC</span><span class="tag">Spatial Analysis</span></div>
-    </div>
   </div>
 </section>
 
@@ -667,7 +690,7 @@
 <section id="experience">
   <div class="wrap">
     <div class="section-tag">Where I've worked</div>
-    <h2>Experience</h2>
+    <h2>Work Experience</h2>
     <div class="timeline">
       <div class="tl-item">
         <div class="tl-role">Teaching and Research Assistant</div>
@@ -712,6 +735,35 @@
   </div>
 </section>
 
+<section id="skills">
+  <div class="wrap">
+    <div class="section-tag">What I work with</div>
+    <h2>Tools / Software</h2>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h3>Spatial Statistics and Epidemiology</h3>
+        <div class="tags"><span class="tag">GeoDa</span><span class="tag">SaTScan</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>GIS and Remote Sensing</h3>
+        <div class="tags"><span class="tag">ArcGIS Pro</span><span class="tag">ArcGIS Online</span><span class="tag">QGIS</span><span class="tag">Google Earth Engine</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>Programming</h3>
+        <div class="tags"><span class="tag">R</span><span class="tag">MATLAB</span><span class="tag">JavaScript</span><span class="tag">Python</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>Cartography and Web Mapping</h3>
+        <div class="tags"><span class="tag">Leaflet.js</span><span class="tag">MapLibre GL JS</span><span class="tag">Maputnik</span><span class="tag">Affinity Designer</span></div>
+      </div>
+      <div class="skill-group">
+        <h3>Others</h3>
+        <div class="tags"><span class="tag">Microsoft Office Suite</span><span class="tag">Geovia Surpac</span><span class="tag">AutoCAD</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="contact">
   <div class="wrap">
     <div class="contact-card">
@@ -727,7 +779,6 @@
     </div>
   </div>
 </section>
-
 <footer class="site-footer">
   <div class="wrap">
     <div class="foot-note">© 2026 Veronica Dadzie Manso</div>
